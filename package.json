@@ -1,0 +1,19 @@
+{
+    "name": "pytorch-gpu-template",
+    "version": "1.0.0",
+    "description": "## Table of Contents",
+    "main": "index.js",
+    "directories": {
+        "test": "tests"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "prettier": "^3.2.5",
+        "prettier-plugin-ini": "^1.1.0",
+        "prettier-plugin-multiline-arrays": "^3.0.3"
+    }
+}

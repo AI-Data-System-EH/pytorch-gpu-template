@@ -1,0 +1,51 @@
+{
+    "recommendations": [
+        //## python
+        "ms-python.python",
+        "ms-python.debugpy",
+
+        //## jupyter notebook
+        "ms-toolsai.jupyter",
+
+        //## productivity
+        "github.copilot",
+        "github.copilot-chat",
+
+        //## linter, formatter, type checker
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        "esbenp.prettier-vscode",
+        "tamasfe.even-better-toml",
+        "foxundermoon.shell-format",
+
+        //## test
+        // "hbenl.vscode-test-explorer",
+        // "ms-vscode.test-adapter-converter",
+        // "littlefoxteam.vscode-python-test-adapter",
+        // "ryanluker.vscode-coverage-gutters",
+
+        //## code utils
+        "aaron-bond.better-comments",
+        "maptz.regionfolder",
+        "njpwerner.autodocstring",
+        "streetsidesoftware.code-spell-checker",
+        "usernamehw.errorlens",
+
+        //## markdown
+        "yzhang.markdown-all-in-one",
+        "bierner.markdown-checkbox",
+        "bierner.markdown-emoji",
+        "bierner.markdown-footnotes",
+        "bierner.markdown-preview-github-styles",
+
+        //## utility
+        "ms-ceintl.vscode-language-pack-ko",
+        "natqe.reload",
+        "mutantdino.resourcemonitor",
+        "ibm.output-colorizer",
+        "donjayamanne.python-environment-manager",
+        "jerrygoyal.shortcut-menu-bar"
+        // "kamikillerto.vscode-colorize",
+        // "adpyke.codesnap",
+    ]
+}

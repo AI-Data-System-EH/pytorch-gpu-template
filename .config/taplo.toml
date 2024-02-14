@@ -1,0 +1,32 @@
+#:schema taplo://taplo.toml
+
+include = [ "**/*.toml" ]
+exclude = [ "**/node_modules/", "**/.venv/", "poetry.toml" ]
+
+[formatting]
+align_comments = true
+align_entries  = true
+column_width   = 80
+
+reorder_arrays = false
+reorder_keys   = false
+
+indent_entries = false
+indent_string  = "    "
+indent_tables  = true
+
+compact_arrays        = false
+compact_inline_tables = false
+compact_entries       = false
+inline_table_expand   = false
+
+allowed_blank_lines  = 3
+array_trailing_comma = true
+array_auto_expand    = true
+array_auto_collapse  = true
+
+trailing_newline = true
+crlf             = false
+
+[schema]
+path = "https://json.schemastore.org/pyproject"

@@ -1,0 +1,43 @@
+# Coverage configuration
+[tool.coverage]
+    [tool.coverage.paths]
+    source = [ "src" ]
+
+    [tool.coverage.run]
+    branch    = true
+    data_file = ".coverage"
+    parallel  = true
+    sigterm   = true
+
+    concurrency = [ "multiprocessing", "thread" ]
+
+    omit = [
+        "*/*sample*",
+        "*/__init__.py",
+        "*/__main__.py",
+        "*/test/*",
+        "*/tests/*",
+    ]
+
+    [tool.coverage.xml]
+    output = ".coverage_report/coverage.xml"
+
+    [tool.coverage.html]
+    directory = ".coverage_report/htmlcov"
+
+    [tool.coverage.report]
+    exclude_lines = [
+        "@(abc.)?abstractmethod",
+        "def __repr__",
+        "def __str__",
+        "if TYPE_CHECKING",
+        "if __name__ == .__main__.:",
+        "if self.debug",
+        "if settings.DEBUG",
+        "pragma: no cover",
+        "raise AssertionError",
+        "raise NotImplementedError",
+        "return NotImplemented",
+    ]
+    show_missing = false
+    skip_covered = false

@@ -1,0 +1,72 @@
+#:schema https://json.schemastore.org/pyproject
+
+# ::: Poetry Configuration :::
+
+[tool.poetry]
+authors     = [ "Your Name <you@example.com>" ]
+description = ""
+name        = "pytorch-gpu-template"
+readme      = "README.md"
+version     = "0.1.0"
+
+packages = [ { include = "aindsys", from = "src" } ]
+
+exclude = [
+    # .gitignore contents automatically excluded
+    "**/docs",
+    "**/examples",
+    "**/notebooks",
+    "**/test*",
+    "pytest.toml",
+]
+
+    [tool.poetry.dependencies]
+    python = "^3.11"
+
+    [tool.poetry.group.pytorch.dependencies]
+    torch       = "^2.2.0"
+    torchvision = "^0.17.0"
+
+    [tool.poetry.group.dev.dependencies]
+    pre-commit = "^3.6.1"
+    ruff       = "^0.2.1"
+
+    [tool.poetry.group.test.dependencies]
+    pytest     = "^8.0.0"
+    pytest-cov = "^4.1.0"
+
+    [tool.poetry.group.utils.dependencies]
+    pathlib  = "^1.0.1"
+    tabulate = "^0.9.0"
+    tqdm     = "^4.66.2"
+
+    [tool.poetry.group.jupyter.dependencies]
+    notebook = "^7.1.0"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires      = [ "poetry-core" ]
+backend-path  = [ "src" ]
+
+#:schema https://raw.githubusercontent.com/microsoft/pyright/main/packages/vscode-pyright/schemas/pyrightconfig.schema.json
+# ::: Pyright Configuration :::
+[tool.pyright]
+defineConstant = { DEBUG = true }
+exclude = [
+    "**/node_modules",
+    "**/__pycache__",
+    "**/.venv",
+    "**/site-packages",
+]
+ignore = [ "**/*.pyc", "**/<ipython-input-*>" ]
+include = [ "src" ]
+
+executionEnvironments = [
+    { root = "src" },
+    { root = "tests", extraPaths = [ "src", "tests" ] },
+]
+
+# https://github.com/microsoft/pyright/blob/main/docs/configuration.md#diagnostic-rule-defaults
+reportMissingImports   = true
+reportMissingTypeStubs = false
+typeCheckingMode       = "standard"

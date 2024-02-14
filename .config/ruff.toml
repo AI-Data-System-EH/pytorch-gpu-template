@@ -1,0 +1,82 @@
+#:schema https://json.schemastore.org/ruff
+
+extend = "../pyproject.toml"
+
+extend-exclude = [ ".git", ".venv" ]
+
+src = [ "src" ]
+
+fix        = true
+show-fixes = true
+
+indent-width = 4
+line-length  = 100
+
+[format]
+docstring-code-format      = true
+docstring-code-line-length = 80
+
+[lint.flake8-type-checking]
+runtime-evaluated-base-classes = [ "pydantic.BaseModel" ]
+
+[lint.flake8-unused-arguments]
+# Whether to allow unused variadic arguments, like *args and **kwargs.
+ignore-variadic-names = true
+
+[lint.isort.sections]
+"numpy"       = [ "numpy", "numpy.typing" ]
+"pydantic"    = [ "pydantic", "pydantic.dataclasses" ]
+"pytest"      = [ "conftest", "pytest" ]
+"torch"       = [ "torch" ]
+"torchvision" = [ "torchvision" ]
+"typing"      = [ "collections", "typing", "typing_extensions" ]
+
+[lint.isort]
+known-first-party  = [ "aindsys" ]
+known-local-folder = [ "src" ]
+# known-third-party = ["src"]
+
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "local-folder",
+]
+
+single-line-exclusions = [ "os", "sys", "json" ]
+
+case-sensitive         = false
+combine-as-imports     = true
+detect-same-package    = true
+extra-standard-library = [ "path" ]
+
+force-to-top    = [ "src" ]
+forced-separate = [ "tests" ]
+
+force-single-line          = false
+force-sort-within-sections = false
+length-sort-straight       = true
+order-by-type              = false
+split-on-trailing-comma    = true
+
+lines-after-imports = 2
+
+[lint.mccabe]
+# Flag errors (`C901`) whenever the complexity level exceeds 10.
+max-complexity = 10
+
+[lint.pep8-naming]
+classmethod-decorators = [
+    # Allow Pydantic's `@validator` decorator to trigger class method treatment.
+    "pydantic.validator",
+]
+extend-ignore-names = [ "callMethod" ]
+
+[lint.pydocstyle]
+convention        = "google"
+ignore-decorators = [ "typing.overload" ]
+
+[lint.pylint]
+max-args          = 5
+max-nested-blocks = 5

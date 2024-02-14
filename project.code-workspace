@@ -1,0 +1,251 @@
+{
+    "folders": [
+        {
+            "path": ".",
+        },
+    ],
+    "settings": {
+        //::: Extension Settings :::
+
+        "python.languageServer": "Pylance",
+
+        /* #region //## Github Copilot */
+
+        "github.copilot.enable": {
+            "*": true,
+            "plaintext": false,
+            "markdown": true,
+            "scminput": false,
+        },
+        /* #endregion */
+
+        /* #region //## Jupyter notebook */
+
+        "notebook.output.wordWrap": false,
+        "notebook.output.textLineLimit": 1000,
+
+        /* #endregion */
+
+        /* #region //## Code Spell Checker */
+
+        "cSpell.allowCompoundWords": true,
+        "cSpell.enableFiletypes": ["!json", "!jsonc", "plaintext", "yaml", "toml"],
+        "cSpell.spellCheckOnlyWorkspaceFiles": true,
+        "cSpell.words": [
+            "aindsys",
+            "coveragerc",
+            "CUDA",
+            "cudnn",
+            "htmlcov",
+            "ipython",
+            "isort",
+            "kwargs",
+            "mccabe",
+            "norecursedirs",
+            "numpy",
+            "pycache",
+            "pydantic",
+            "pydocstyle",
+            "Pylance",
+            "pylint",
+            "pyproject",
+            "pyright",
+            "pytest",
+            "repr",
+            "tada",
+            "taplo",
+            "tqdm",
+            "TUKOREA",
+            "venv",
+            "virtualenvs",
+            "xfail",
+            "xpassed",
+            "xunit",
+        ],
+
+        /* #endregion */
+
+        /* #region //## Markdown */
+
+        "markdown-preview-github-styles.colorTheme": "auto",
+        "markdown.extension.preview.autoShowPreviewToSide": true,
+        "markdown.extension.toc.slugifyMode": "github",
+        "markdown.extension.toc.updateOnSave": true,
+        "markdown.extension.toc.levels": "1..3",
+        "markdown.extension.toc.omittedFromToc": {
+            "README.md": ["## Table of Contents"],
+        },
+
+        /* #endregion */
+
+        /* #region //## Better Comments */
+
+        "better-comments.multilineComments": true,
+        "better-comments.highlightPlainText": true,
+        "better-comments.tags": [
+            {
+                "tag": "pylint:",
+                "color": "#5F5F5F",
+                "italic": true,
+            },
+            {
+                "tag": "pyright:",
+                "color": "#5F5F5F",
+                "italic": true,
+            },
+            {
+                "tag": "type: ignore",
+                "color": "#FFA500",
+                "italic": true,
+            },
+            {
+                "tag": ":::",
+                "color": "#DBFF33",
+            },
+            {
+                "tag": "@fixme",
+                "color": "#FFEE58",
+            },
+            {
+                "tag": "!!!",
+                "color": "#FF2D00",
+            },
+            {
+                "tag": "???",
+                "color": "#3498DB",
+            },
+            {
+                "tag": "@debug",
+                "color": "#FF8C00",
+                "italic": true,
+            },
+            {
+                "tag": "@test",
+                "color": "#CF275C",
+                "italic": true,
+            },
+            {
+                "tag": "@note",
+                "color": "#FFEE58",
+                "italic": true,
+            },
+            {
+                "tag": "@experimental",
+                "color": "#FFEE58",
+                "italic": true,
+            },
+            {
+                "tag": "~~",
+                "color": "#474747",
+                "strikethrough": true,
+            },
+            {
+                "tag": "@todo",
+                "color": "#8CDD99",
+            },
+            {
+                "tag": "@here",
+                "color": "#F2A3B5",
+            },
+            {
+                "tag": "@check",
+                "color": "#FFA500",
+            },
+            {
+                "tag": "##",
+                "color": "#b0b7bc",
+                "italic": true,
+            },
+            {
+                "tag": "#region",
+                "color": "#b0b7bc",
+                "italic": true,
+            },
+            {
+                "tag": "&*",
+                "color": "#98C379",
+            },
+            {
+                "tag": "@@@",
+                "color": "#29292B",
+            },
+        ],
+
+        /* #endregion */
+
+        /* #region //## ErrorLens */
+
+        "errorLens.fontWeight": "400",
+        "errorLens.messageMaxChars": 100,
+        "errorLens.statusBarIconsEnabled": true,
+        "errorLens.statusBarColorsEnabled": true,
+        "errorLens.statusBarIconsUseBackground": false,
+        "errorLens.statusBarMessageType": "closestProblem",
+        "errorLens.removeLinebreaks": false,
+        "errorLens.scrollbarHackEnabled": false,
+        "errorLens.statusBarIconsAtZero": "hide",
+        "errorLens.excludeBySource": ["Pylance(reportGeneralTypeIssues)"],
+
+        /* #endregion */
+
+        /* #region //## RegionFolder */
+
+        "maptz.regionfolder": {
+            // "[python]": {
+            //     "disableFolding": true
+            // },
+            "[markdown]": {
+                "foldStart": "[//]: <> (region [NAME])",
+                "foldEnd": "[//]: <> (endregion)",
+                "foldStartRegex": "\\[\\/\\/\\]:[\\s]*<>[\\s]*\\((region)[\\s]*(.*)\\)",
+                "foldEndRegex": "\\[\\/\\/\\]:[\\s]*<>[\\s]*\\((endregion)\\)",
+            },
+            "[toml]": {
+                // "disableFolding": false,
+                "foldStart": "# <!-- # region [NAME] -->",
+                "foldEnd": "# <!-- # endregion -->",
+                "foldStartRegex": "#[\\s]*<!--#[\\s]*(region)[\\s]*(.*)-->",
+                "foldEndRegex": "#[\\s]*<!--#[\\s]*(endregion)-->",
+            },
+        },
+
+        /* #endregion */
+
+        /* #region //## AutoDocstring */
+
+        "autoDocstring.docstringFormat": "google",
+        "autoDocstring.startOnNewLine": true,
+        "autoDocstring.includeExtendedSummary": true,
+
+        /* #endregion */
+
+        /* #region //## Resource monitor */
+
+        "resmon.updatefrequencyms": 2000,
+        "resmon.show.cpufreq": true,
+        "resmon.show.cputemp": true,
+        "resmon.show.cpuusage": true,
+        // "resmon.show.disk": true,
+        "resmon.show.battery": true,
+        "resmon.show.mem": true,
+
+        /* #endregion */
+
+        /* #region //## ShortcutMenuBar */
+
+        "ShortcutMenuBar.beautify": true,
+        "ShortcutMenuBar.formatWith": false,
+        "ShortcutMenuBar.toggleTerminal": false,
+        "ShortcutMenuBar.navigateBack": false,
+        "ShortcutMenuBar.navigateForward": false,
+        "ShortcutMenuBar.openSettings": true,
+        "ShortcutMenuBar.save": true,
+        // "ShortcutMenuBar.undo": true,
+        // "ShortcutMenuBar.redo": true,
+        "ShortcutMenuBar.commentLine": true,
+        "ShortcutMenuBar.openFilesList": false,
+        "ShortcutMenuBar.userButton01Command": "editor.action.fixAll",
+
+        /* #endregion */
+    },
+}
