@@ -1,17 +1,23 @@
 # Python Boilerplate with Pytorch GPU support
 
 [![GitHub](https://img.shields.io/badge/pytorch--gpu--template-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AI-Data-system-EH/pytorch-gpu-template)
-[![License](https://img.shields.io/github/license/AI-Data-system-EH/pytorch-gpu-template?style=for-the-badge)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-FFD43B?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
+[![GitHub last commit](https://img.shields.io/github/last-commit/AI-Data-system-EH/pytorch-gpu-template?style=for-the-badge)]()
+[![GitHub issues](https://img.shields.io/github/issues/AI-Data-system-EH/pytorch-gpu-template?style=for-the-badge)](https://github.com/AI-Data-system-EH/pytorch-gpu-template/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/AI-Data-system-EH/pytorch-gpu-template?style=for-the-badge)](https://github.com/AI-Data-system-EH/pytorch-gpu-template/pulls)
+[![GitHub stars](https://img.shields.io/github/stars/AI-Data-system-EH/pytorch-gpu-template?style=for-the-badge)](#)
+[![GitHub forks](https://img.shields.io/github/forks/AI-Data-system-EH/pytorch-gpu-template?style=for-the-badge)](#)
 
 ## :orange_book: Introduction
 
 - PyTorch GPU boilerplate for deep learning projects.
 - Also includes Ruff, Pre-commit, and Poetry set-up for a complete development environment.
 
-<table style="margin: 0 auto; border: none; table-layout: fixed; width: 100%">
+<table style="margin: 0; border: none">
   <tr style="border: none">
-    <td align="center" style="border: none; width: 25%">
-      <img src="https://pytorch.org/assets/images/pytorch-logo.png" alt="PyTorch" height="200"/>
+    <td align="center" width="25%">
+      <img alt="PyTorch" height="200" src="https://pytorch.org/assets/images/pytorch-logo.png" />
       <a href="https://pytorch.org/" target="_blank">
         <img src="https://img.shields.io/badge/PyTorch-2.2.0--cu121-EE4C2C?style=for-the-badge&logo=PyTorch&logoColor=EE4C2C" />
       </a>
@@ -19,20 +25,20 @@
         <img src="https://img.shields.io/badge/Torchvision-0.17.0-EE4C2C?style=for-the-badge&logo=PyTorch&logoColor=EE4C2C" />
       </a>
     </td>
-    <td align="center" style="border: none; width: 25%">
+    <td align="center" width="25%">
       <img alt="Poetry" height="200" src="https://python-poetry.org/images/logo-origami.svg">
       <a href="https://python-poetry.org/" target="_blank">
         <img src="https://img.shields.io/badge/Poetry-1.7.1-60A5FA?style=for-the-badge&logo=Poetry&logoColor=60A5FA" />
       </a>
     </td>
-    <td align="center" style="border: none; width: 25%">
-      <img src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png" alt="Python" height="200"/>
+    <td align="center" width="25%">
+      <img alt="Python" height="200" src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png" />
       <a href="https://www.python.org/" target="_blank">
         <img src="https://img.shields.io/badge/Python-3.11.7-3776AB?style=for-the-badge&logo=Python&logoColor=FFD43B" />
       </a>
     </td>
-    <td align="center" style="border: none; width: 25%">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg" alt="Jupyter" height="200"/>
+    <td align="center" width="25%">
+      <img alt="Jupyter" height="200" src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg" />
       <a href="https://jupyter.org/" target="_blank">
         <img src="https://img.shields.io/badge/Notebook-7.1.0-F37626?style=for-the-badge&logo=Jupyter&logoColor=F37626" />
       </a>
@@ -40,27 +46,27 @@
   </tr>
 </table>
 
-<table style="margin: 0 auto; border: none; table-layout: fixed; width: 100%">
+<table style="margin: 0; border: none">
   <tr style="border: none">
-    <td align="center" style="border: none; width: 25%">
+    <td align="center" width="25%">
       <img alt="Ruff" height="200" src="https://github.com/astral-sh/ruff-vscode/blob/main/icon.png?raw=true">
       <a href="https://www.python.org/" target="_blank">
         <img src="https://img.shields.io/badge/Ruff-0.2.1-30173D?style=for-the-badge&logo=Ruff&logoColor=D7FF64" />
       </a>
     </td>
-    <td align="center" style="border: none; width: 25%">
+    <td align="center" width="25%">
       <img alt="Pytest" height="200" src="https://docs.pytest.org/en/8.0.x/_static/pytest_logo_curves.svg">
       <a href="https://docs.pytest.org/en/8.0.x/" target="_blank">
         <img src="https://img.shields.io/badge/Pytest-8.0.0-0A9EDC?style=for-the-badge&logo=Pytest&logoColor=0A9EDC" />
       </a>
     </td>
-    <td align="center" style="border: none; width: 25%">
+    <td align="center" width="25%">
       <img alt="Pre-commit" height="200" src="https://pre-commit.com/logo.svg">
       <a href="https://pre-commit.com/" target="_blank">
         <img src="https://img.shields.io/badge/Pre--commit-3.6.1-FAB041?style=for-the-badge&logo=Pre-commit&logoColor=FAB041" />
       </a>
     </td>
-    <td align="center" style="border: none; width: 25%">
+    <td align="center" width="25%">
       <img alt="Pyright" height="200" src="https://ms-pyright.gallerycdn.vsassets.io/extensions/ms-pyright/pyright/1.1.350/1707151800648/Microsoft.VisualStudio.Services.Icons.Default">
       <a href="https://microsoft.github.io/pyright/" target="_blank">
         <img src="https://img.shields.io/badge/Pyright-1.1.350-B8B87E?style=for-the-badge&logo=python&logoColor=B8B87E" />
