@@ -47,10 +47,7 @@
     "python.globalModuleInstallation": false,
     "python.terminal.executeInFileDir": true,
 
-    "python.analysis.fixAll": [
-        "source.unusedImports",
-        "source.convertImportFormat"
-    ],
+    "python.analysis.fixAll": ["source.unusedImports", "source.convertImportFormat"],
 
     "python.analysis.inlayHints.functionReturnTypes": true,
     "python.analysis.inlayHints.variableTypes": true,
@@ -80,12 +77,7 @@
         "**/.cache": true,
         "**/.coverage": true,
         "**/.coverage.*": true,
-        "**/.hypothesis": true,
-        "**/.mypy_cache": true,
-        "**/.nox": true,
-        "**/.pytest_cache": true,
-        "**/.ruff_cache": true,
-        "**/.tox": true
+        "**/.pytest_cache": true
     },
 
     /* #endregion */
@@ -109,11 +101,14 @@
     /* #region //## Formatter */
 
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "prettier.prettierPath": "./node_modules/prettier",
-    "prettier.withNodeModules": true,
     "prettier.printWidth": 100,
     "prettier.tabWidth": 4,
     "prettier.useTabs": false,
+    // "prettier.resolveGlobalModules": true,
+    // "prettier.requireConfig": true,
+    // "prettier.configPath": ".prettierrc",
+    // "prettier.withNodeModules": true,
+    // "prettier.prettierPath": "/usr/local/share/nvm/versions/node/v20.11.1/lib/node_modules/prettier",
 
     "[python]": {
         "editor.defaultFormatter": "charliermarsh.ruff",
@@ -126,7 +121,6 @@
     "ruff.lint.args": ["--config=.config/ruff.toml"],
 
     "[toml]": {
-        // "editor.defaultFormatter": "esbenp.prettier-vscode"
         "editor.defaultFormatter": "tamasfe.even-better-toml"
     },
     "evenBetterToml.taplo.configFile.path": ".config/taplo.toml",
@@ -144,7 +138,7 @@
         "editor.wordWrap": "bounded",
         "editor.wordWrapColumn": 200
     },
-    "markdown.styles": [".vscode/extras/github-markdown.css"],
+    "markdown.styles": [".config/extras/github-markdown.css"],
     "markdown.preview.scrollEditorWithPreview": false,
     "markdown.preview.scrollPreviewWithEditor": false,
 

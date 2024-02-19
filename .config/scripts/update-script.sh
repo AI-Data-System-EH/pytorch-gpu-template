@@ -64,10 +64,10 @@ poetry update
 colorize main "Updating Node packages..."
 
 # Update installed packages
-npm update
+npm update -g
 
 # Update lock file
-npm install --package-lock-only
+# npm install --package-lock-only
 
 # Remove unneeded dependencies
 # npm prune
@@ -80,8 +80,13 @@ npm install --package-lock-only
 
 colorize main "Updating pre-commit hooks..."
 
+# Check if pre-commit hooks are installed
+if [ ! -f .git/hooks/pre-commit ]; then
+    poetry run pre-commit install
+fi
+
 # Update pre-commit hooks
-pre-commit autoupdate
+poetry run pre-commit autoupdate
 
 echo -e "\n"
 colorize success "Update finished! 🎉"

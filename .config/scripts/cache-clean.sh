@@ -4,7 +4,7 @@
 # Help print
 # if --help or -h in any position, print help and exit
 help_func() {
-    echo "Usage: cache_clean.sh [options] [path1] [path2] ..."
+    echo "Usage: cache-clean.sh [options] [path1] [path2] ..."
     echo ""
     echo "Options:"
     echo "  --dry-run        show what would be deleted"
@@ -14,13 +14,13 @@ help_func() {
     # echo "  -i, --ignore     glob pattern to ignore"
     echo ""
     echo "Examples:"
-    echo "  cache_clean.sh"
-    echo "  cache_clean.sh --help"
-    echo "  cache_clean.sh --dry-run"
-    echo "  cache_clean.sh --verbose"
-    # echo "  cache_clean.sh --pattern \"**/__pycache__\""
-    # echo "  cache_clean.sh --ignore \"**/venv\" \"**/node_modules\""
-    # echo "  cache_clean.sh --pattern \"**/__pycache__\" --ignore \"**/venv\""
+    echo "  cache-clean.sh"
+    echo "  cache-clean.sh --help"
+    echo "  cache-clean.sh --dry-run"
+    echo "  cache-clean.sh --verbose"
+    # echo "  cache-clean.sh --pattern \"**/__pycache__\""
+    # echo "  cache-clean.sh --ignore \"**/venv\" \"**/node_modules\""
+    # echo "  cache-clean.sh --pattern \"**/__pycache__\" --ignore \"**/venv\""
     echo ""
 }
 
@@ -109,7 +109,6 @@ while true; do
         ;;
     esac
 done
-
 
 # Header
 header="Cache Clean"

@@ -1,0 +1,98 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+    "name": "ubuntu/cuda",
+    // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+    // "image": "mcr.microsoft.com/devcontainers/base:jammy",
+    "image": "nvidia/cuda:12.3.1-runtime-ubuntu22.04",
+    "runArgs": [
+        "--gpus=all"
+    ],
+
+    "hostRequirements": {
+        "gpu": true
+    },
+
+    "containerEnv": {
+        // "PATH": "/usr/local/cuda/bin:${containerEnv:PATH}",
+        // "LD_LIBRARY_PATH": "/usr/local/cuda/lib64:${LD_LIBRARY_PATH}"
+    },
+    "containerUser": "vscode",
+
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "workspaceFolder": "/workspace",
+
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "bash -i ${localWorkspaceFolder}/.config/scripts/post-create.sh",
+
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "username": "vscode"
+        },
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/python:1": {
+            "installTools": false,
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers-contrib/features/poetry:2": {},
+        "ghcr.io/devcontainers/features/node:1": {},
+        "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
+            "plugins": "ssh-agent npm poetry zsh-autosuggestions zsh-syntax-highlighting zsh-completions fd",
+            "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting https://github.com/zsh-users/zsh-completions"
+        }
+    },
+
+    // Configure tool-specific properties.
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh"
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.debugpy",
+                "ms-python.vscode-pylance",
+                "donjayamanne.python-environment-manager",
+                "ms-toolsai.jupyter",
+                "charliermarsh.ruff",
+                "esbenp.prettier-vscode",
+                "tamasfe.even-better-toml",
+                "foxundermoon.shell-format",
+                "codezombiech.gitignore",
+                "GitHub.copilot",
+                "mhutchie.git-graph",
+                "aaron-bond.better-comments",
+                "maptz.regionfolder",
+                "njpwerner.autodocstring",
+                "streetsidesoftware.code-spell-checker",
+                "yzhang.markdown-all-in-one",
+                "bierner.markdown-checkbox",
+                "bierner.markdown-emoji",
+                "bierner.markdown-footnotes",
+                "bierner.markdown-preview-github-styles",
+                "bierner.emojisense",
+                "usernamehw.errorlens",
+                "natqe.reload",
+                "mutantdino.resourcemonitor",
+                "IBM.output-colorizer",
+                "jerrygoyal.shortcut-menu-bar"
+            ]
+        }
+    }
+
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [9000],
+
+    // Use 'portsAttributes' to set default properties for specific forwarded ports.
+    // More info: https://containers.dev/implementors/json_reference/#port-attributes
+    // "portsAttributes": {
+    // 	"9000": {
+    // 		"label": "Hello Remote World",
+    // 		"onAutoForward": "notify"
+    // 	}
+    // },
+
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    // "remoteUser": "root"
+}

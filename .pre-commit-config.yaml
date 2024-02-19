@@ -5,7 +5,7 @@ repos:
       hooks:
           - id: cache-clean
             name: cache-clean (script)
-            entry: ./.config/scripts/cache_clean.sh
+            entry: ./.config/scripts/cache-clean.sh
             language: script
             pass_filenames: false
             args: ["."]
@@ -46,7 +46,7 @@ repos:
             exclude_types: [markdown, python]
 
     - repo: https://github.com/astral-sh/ruff-pre-commit
-      rev: v0.2.1
+      rev: v0.2.2
       hooks:
           - id: ruff
             types_or: [python, pyi, jupyter]

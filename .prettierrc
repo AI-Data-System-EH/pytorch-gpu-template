@@ -6,10 +6,7 @@
     "singleQuote": false,
     "useTabs": false,
 
-    "plugins": [
-        "prettier-plugin-ini",
-        "prettier-plugin-multiline-arrays"
-    ],
+    "plugins": ["prettier-plugin-ini", "prettier-plugin-multiline-arrays"],
 
     "overrides": [
         {
@@ -28,7 +25,7 @@
             }
         },
         {
-            "files": "*.yaml",
+            "files": "*.{yml,yaml}",
             "options": {
                 "parser": "yaml",
                 "tabWidth": 4,
@@ -58,7 +55,7 @@
             }
         },
         {
-            "files": "*.ini, .coveragerc, .editorconfig",
+            "files": "*.ini, .editorconfig",
             "options": {
                 "iniSpaceAroundEquals": true,
                 "parser": "ini",

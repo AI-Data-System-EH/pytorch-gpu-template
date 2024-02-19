@@ -191,9 +191,6 @@
         /* #region //## RegionFolder */
 
         "maptz.regionfolder": {
-            // "[python]": {
-            //     "disableFolding": true
-            // },
             "[markdown]": {
                 "foldStart": "[//]: <> (region [NAME])",
                 "foldEnd": "[//]: <> (endregion)",
@@ -201,7 +198,6 @@
                 "foldEndRegex": "\\[\\/\\/\\]:[\\s]*<>[\\s]*\\((endregion)\\)",
             },
             "[toml]": {
-                // "disableFolding": false,
                 "foldStart": "# <!-- # region [NAME] -->",
                 "foldEnd": "# <!-- # endregion -->",
                 "foldStartRegex": "#[\\s]*<!--#[\\s]*(region)[\\s]*(.*)-->",
@@ -240,8 +236,6 @@
         "ShortcutMenuBar.navigateForward": false,
         "ShortcutMenuBar.openSettings": true,
         "ShortcutMenuBar.save": true,
-        // "ShortcutMenuBar.undo": true,
-        // "ShortcutMenuBar.redo": true,
         "ShortcutMenuBar.commentLine": true,
         "ShortcutMenuBar.openFilesList": false,
         "ShortcutMenuBar.userButton01Command": "editor.action.fixAll",
