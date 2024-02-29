@@ -2,38 +2,17 @@
     "printWidth": 100,
     "tabWidth": 4,
     "endOfLine": "auto",
+    "trailingComma": "es5",
     "semi": true,
     "singleQuote": false,
     "useTabs": false,
+    "singleAttributePerLine": false,
 
-    "plugins": ["prettier-plugin-ini", "prettier-plugin-multiline-arrays"],
+    "plugins": ["prettier-plugin-multiline-arrays"],
 
     "overrides": [
         {
-            "files": "*.{json,jsonc}",
-            "options": {
-                "tabWidth": 4,
-                "singleAttributePerLine": true
-            }
-        },
-        {
-            "files": "*.toml",
-            "options": {
-                "parser": "toml",
-                "tabWidth": 4,
-                "singleAttributePerLine": true
-            }
-        },
-        {
-            "files": "*.{yml,yaml}",
-            "options": {
-                "parser": "yaml",
-                "tabWidth": 4,
-                "singleAttributePerLine": true
-            }
-        },
-        {
-            "files": "*.{md,markdown}",
+            "files": "*.md",
             "options": {
                 "printWidth": 200,
                 "tabWidth": 2,
@@ -41,25 +20,19 @@
             }
         },
         {
-            "files": "*.workspace",
-            "options": {
-                "parser": "jsonc",
-                "tabWidth": 4
-            }
-        },
-        {
-            "files": ".prettierrc",
-            "options": {
-                "parser": "json",
-                "tabWidth": 4
-            }
-        },
-        {
-            "files": "*.ini, .editorconfig",
+            "files": ["*.ini", "*.cfg"],
             "options": {
                 "iniSpaceAroundEquals": true,
                 "parser": "ini",
-                "printWidth": 80
+                "printWidth": 80,
+                "plugins": ["prettier-plugin-ini"]
+            }
+        },
+        {
+            "files": [".prettierrc"],
+            "options": {
+                "parser": "jsonc",
+                "trailingComma": "none"
             }
         }
     ]

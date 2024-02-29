@@ -5,8 +5,11 @@
     // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
     // "image": "mcr.microsoft.com/devcontainers/base:jammy",
     "image": "nvidia/cuda:12.3.1-runtime-ubuntu22.04",
+
+    // prettier-ignore
     "runArgs": [
-        "--gpus=all"
+        "--name", "${localEnv:USER}-${localWorkspaceFolderBasename}",
+        "--gpus", "all"
     ],
 
     "hostRequirements": {
@@ -14,16 +17,19 @@
     },
 
     "containerEnv": {
-        // "PATH": "/usr/local/cuda/bin:${containerEnv:PATH}",
-        // "LD_LIBRARY_PATH": "/usr/local/cuda/lib64:${LD_LIBRARY_PATH}"
+        "LANG": "ko_KR.UTF-8",
+        "LC_MESSAGES": "POSIX",
+        "NVIDIA_VISIBLE_DEVICES": "all",
+        "NVIDIA_DRIVER_CAPABILITIES": "compute,utility",
+        "SKIP_PACKAGES_UPDATE": "true" // env variable using in post-create.sh
     },
     "containerUser": "vscode",
 
-    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-    "workspaceFolder": "/workspace",
+    "workspaceFolder": "~/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=~/workspace,type=bind,consistency=cached",
 
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "bash -i ${localWorkspaceFolder}/.config/scripts/post-create.sh",
+    "postCreateCommand": "bash ${localWorkspaceFolder}/.config/scripts/post-create.sh",
 
     // Features to add to the dev container. More info: https://containers.dev/features.
     "features": {
@@ -38,7 +44,7 @@
         "ghcr.io/devcontainers-contrib/features/poetry:2": {},
         "ghcr.io/devcontainers/features/node:1": {},
         "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
-            "plugins": "ssh-agent npm poetry zsh-autosuggestions zsh-syntax-highlighting zsh-completions fd",
+            "plugins": "ssh-agent poetry zsh-autosuggestions zsh-syntax-highlighting zsh-completions fd",
             "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting https://github.com/zsh-users/zsh-completions"
         }
     },
@@ -58,8 +64,8 @@
                 "charliermarsh.ruff",
                 "esbenp.prettier-vscode",
                 "tamasfe.even-better-toml",
+                "IronGeek.vscode-env",
                 "foxundermoon.shell-format",
-                "codezombiech.gitignore",
                 "GitHub.copilot",
                 "mhutchie.git-graph",
                 "aaron-bond.better-comments",

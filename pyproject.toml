@@ -28,11 +28,11 @@ exclude = [
     torchvision = "^0.17.0"
 
     [tool.poetry.group.dev.dependencies]
-    pre-commit = "^3.6.1"
-    ruff       = "^0.2.1"
+    pre-commit = "^3.6.2"
+    ruff       = "^0.2.2"
 
     [tool.poetry.group.test.dependencies]
-    pytest     = "^8.0.0"
+    pytest     = "^8.0.1"
     pytest-cov = "^4.1.0"
 
     [tool.poetry.group.utils.dependencies]

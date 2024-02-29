@@ -1,6 +1,0 @@
-#:schema https://json.schemastore.org/poetry
-
-[virtualenvs]
-create     = true
-in-project = true
-path       = ".venv"

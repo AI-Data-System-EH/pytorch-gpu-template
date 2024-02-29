@@ -47,8 +47,10 @@ git submodule update --init --recursive
 
 colorize main "Updating Poetry python packages..."
 
+poetry up --latest
+
 # Update installed packages
-poetry update
+# poetry update
 
 # Update lock file
 # poetry lock
@@ -64,6 +66,7 @@ poetry update
 colorize main "Updating Node packages..."
 
 # Update installed packages
+npm update
 npm update -g
 
 # Update lock file

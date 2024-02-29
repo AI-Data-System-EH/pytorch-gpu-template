@@ -44,6 +44,7 @@ repos:
       hooks:
           - id: prettier
             exclude_types: [markdown, python]
+            # args: ["--config", "./.config/.prettierrc"]
 
     - repo: https://github.com/astral-sh/ruff-pre-commit
       rev: v0.2.2

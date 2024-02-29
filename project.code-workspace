@@ -5,6 +5,9 @@
         },
     ],
     "settings": {
+        // ## Terminal settings
+        "terminal.integrated.fontFamily": "'MesloLGS Nerd Font', 'CaskaydiaCove Nerd Font', Pretendard, 'Pretendard Variable'",
+
         //::: Extension Settings :::
 
         "python.languageServer": "Pylance",
@@ -28,6 +31,7 @@
 
         /* #region //## Code Spell Checker */
 
+        "cSpell.enabled": true,
         "cSpell.allowCompoundWords": true,
         "cSpell.enableFiletypes": ["!json", "!jsonc", "plaintext", "yaml", "toml"],
         "cSpell.spellCheckOnlyWorkspaceFiles": true,
@@ -83,11 +87,6 @@
         "better-comments.multilineComments": true,
         "better-comments.highlightPlainText": true,
         "better-comments.tags": [
-            {
-                "tag": "pylint:",
-                "color": "#5F5F5F",
-                "italic": true,
-            },
             {
                 "tag": "pyright:",
                 "color": "#5F5F5F",

@@ -30,9 +30,10 @@
     "editor.find.autoFindInSelection": "multiline",
 
     "files.insertFinalNewline": true,
-    "files.trimTrailingWhitespace": false,
 
     "workbench.editorLargeFileConfirmation": 1500,
+
+    "cSpell.enabled": false,
 
     // ::: Language :::
 
@@ -47,8 +48,6 @@
     "python.globalModuleInstallation": false,
     "python.terminal.executeInFileDir": true,
 
-    "python.analysis.fixAll": ["source.unusedImports", "source.convertImportFormat"],
-
     "python.analysis.inlayHints.functionReturnTypes": true,
     "python.analysis.inlayHints.variableTypes": true,
     "python.analysis.inlayHints.pytestParameters": true,
@@ -59,36 +58,18 @@
     "python.analysis.useLibraryCodeForTypes": true,
     "python.analysis.diagnosticMode": "workspace",
 
-    "python.analysis.exclude": [
-        "**/node_modules",
-        "**/dist",
-        "**/build",
-        "**/.venv",
-        "**/__pycache__"
-    ],
-    "python.analysis.ignore": [
-        "**/site-packages/**/*.py", // default
-        "**/*.pyi",
-        "**/*.pyc"
-
-    ],
-    "files.exclude": {
-        "**/__pycache__": true,
-        "**/.cache": true,
-        "**/.coverage": true,
-        "**/.coverage.*": true,
-        "**/.pytest_cache": true
-    },
-
-    /* #endregion */
-
-    /* #region //## Test */
+    // "files.exclude": {
+    //     "**/__pycache__": true,
+    //     "**/.coverage": true,
+    //     "**/.coverage.*": true,
+    //     "**/.pytest_cache": true
+    // },
 
     "python.testing.cwd": "${workspaceFolder}/src",
     "python.testing.pytestArgs": [
         ".", // python.testing.cwd
         "--config-file",
-        "pytest.toml",
+        "${workspaceFolder}/.config/pytest.toml",
         "--cov-config",
         "${workspaceFolder}/.config/coverage.toml",
         "--cov-append",
@@ -103,12 +84,13 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "prettier.printWidth": 100,
     "prettier.tabWidth": 4,
-    "prettier.useTabs": false,
-    // "prettier.resolveGlobalModules": true,
-    // "prettier.requireConfig": true,
-    // "prettier.configPath": ".prettierrc",
-    // "prettier.withNodeModules": true,
-    // "prettier.prettierPath": "/usr/local/share/nvm/versions/node/v20.11.1/lib/node_modules/prettier",
+    "prettier.withNodeModules": true,
+    // "prettier.configPath": ".config/.prettierrc",
+
+    "[shellscript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        // "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
 
     "[python]": {
         "editor.defaultFormatter": "charliermarsh.ruff",
@@ -125,25 +107,19 @@
     },
     "evenBetterToml.taplo.configFile.path": ".config/taplo.toml",
 
-    "[ignore]": {
-        "editor.defaultFormatter": "foxundermoon.shell-format"
-    },
-    "[shellscript]": {
-        "editor.defaultFormatter": "foxundermoon.shell-format"
+    "files.associations": {
+        "*.env": "env"
     },
 
     "[markdown]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one",
         "files.trimTrailingWhitespace": false,
         "editor.wordWrap": "bounded",
         "editor.wordWrapColumn": 200
     },
     "markdown.styles": [".config/extras/github-markdown.css"],
     "markdown.preview.scrollEditorWithPreview": false,
-    "markdown.preview.scrollPreviewWithEditor": false,
+    "markdown.preview.scrollPreviewWithEditor": false
 
     /* #endregion */
-
-    // ::: Extras :::
-    "placeholder": "Below Settings are not aligned with the above"
 }
