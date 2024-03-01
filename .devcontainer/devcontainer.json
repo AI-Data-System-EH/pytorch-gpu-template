@@ -16,6 +16,10 @@
         "gpu": true
     },
 
+    "remoteEnv": {
+        "PATH": "${containerEnv:PATH}:${containerWorkspaceFolder}/.config/scripts/bin"
+    },
+
     "containerEnv": {
         "LANG": "ko_KR.UTF-8",
         "LC_MESSAGES": "POSIX",
@@ -25,11 +29,11 @@
     },
     "containerUser": "vscode",
 
-    "workspaceFolder": "~/workspace",
-    "workspaceMount": "source=${localWorkspaceFolder},target=~/workspace,type=bind,consistency=cached",
+    "workspaceFolder": "/home/vscode/workspace/${localWorkspaceFolderBasename}",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/home/vscode/workspace/${localWorkspaceFolderBasename},type=bind,consistency=cached",
 
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "bash ${localWorkspaceFolder}/.config/scripts/post-create.sh",
+    "postCreateCommand": "zsh ${containerWorkspaceFolder}/.config/scripts/post-create.sh",
 
     // Features to add to the dev container. More info: https://containers.dev/features.
     "features": {

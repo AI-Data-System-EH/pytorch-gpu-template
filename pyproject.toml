@@ -24,7 +24,7 @@ exclude = [
     python = "^3.11"
 
     [tool.poetry.group.pytorch.dependencies]
-    torch       = "^2.2.0"
+    torch       = "^2.2.1"
     torchvision = "^0.17.0"
 
     [tool.poetry.group.dev.dependencies]
@@ -32,7 +32,7 @@ exclude = [
     ruff       = "^0.2.2"
 
     [tool.poetry.group.test.dependencies]
-    pytest     = "^8.0.1"
+    pytest     = "^8.0.2"
     pytest-cov = "^4.1.0"
 
     [tool.poetry.group.utils.dependencies]
@@ -41,7 +41,7 @@ exclude = [
     tqdm     = "^4.66.2"
 
     [tool.poetry.group.jupyter.dependencies]
-    notebook = "^7.1.0"
+    notebook = "^7.1.1"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
