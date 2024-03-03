@@ -21,11 +21,12 @@
     },
 
     "containerEnv": {
+        "TZ": "Asia/Seoul",
         "LANG": "ko_KR.UTF-8",
         "LC_MESSAGES": "POSIX",
         "NVIDIA_VISIBLE_DEVICES": "all",
         "NVIDIA_DRIVER_CAPABILITIES": "compute,utility",
-        "SKIP_PACKAGES_UPDATE": "true" // env variable using in post-create.sh
+        "SKIP_PACKAGES_UPDATE": "false" // env variable using in post-create.sh
     },
     "containerUser": "vscode",
 
@@ -38,27 +39,28 @@
     // Features to add to the dev container. More info: https://containers.dev/features.
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {
-            "username": "vscode"
+            "username": "vscode",
+            "configureZshAsDefaultShell": true
         },
-        "ghcr.io/devcontainers/features/git:1": {},
+        // "ghcr.io/devcontainers/features/git:1": {},
         "ghcr.io/devcontainers/features/python:1": {
             "installTools": false,
             "version": "latest"
         },
-        "ghcr.io/devcontainers-contrib/features/poetry:2": {},
-        "ghcr.io/devcontainers/features/node:1": {},
-        "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
-            "plugins": "ssh-agent poetry zsh-autosuggestions zsh-syntax-highlighting zsh-completions fd",
-            "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting https://github.com/zsh-users/zsh-completions"
-        }
+        "ghcr.io/devcontainers-contrib/features/poetry:2": {}
+        // "ghcr.io/devcontainers/features/node:1": {}
+        // "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
+        //     "plugins": "ssh-agent poetry zsh-autosuggestions zsh-syntax-highlighting zsh-completions fd",
+        //     "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting https://github.com/zsh-users/zsh-completions"
+        // }
     },
 
     // Configure tool-specific properties.
     "customizations": {
         "vscode": {
-            "settings": {
-                "terminal.integrated.defaultProfile.linux": "zsh"
-            },
+            // "settings": {
+            //     "terminal.integrated.defaultProfile.linux": "zsh"
+            // },
             "extensions": [
                 "ms-python.python",
                 "ms-python.debugpy",

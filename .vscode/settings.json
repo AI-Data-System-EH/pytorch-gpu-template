@@ -88,8 +88,7 @@
     // "prettier.configPath": ".config/.prettierrc",
 
     "[shellscript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-        // "editor.defaultFormatter": "foxundermoon.shell-format"
+        "editor.defaultFormatter": "foxundermoon.shell-format"
     },
 
     "[python]": {
