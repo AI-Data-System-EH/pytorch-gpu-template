@@ -47,6 +47,7 @@ git submodule update --init --recursive
 
 colorize main "Updating Poetry python packages..."
 
+poetry self update
 poetry up --latest
 
 # Update installed packages

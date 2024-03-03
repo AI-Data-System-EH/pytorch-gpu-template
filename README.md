@@ -113,3 +113,55 @@
 - Check [Node Package Manager](https://www.npmjs.com/) for more information.
 
 ### Done! :tada:
+
+<br/>
+
+---
+
+<br/>
+
+## :notebook_with_decorative_cover: Additional Information
+
+### Commit Signinig with SSH (Verified Commit)
+
+- [How to sign commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)
+
+> **note**
+> You don't need to set up git on the devcontainer. The git configuration on the local machine will be reflected to the devcontainer automatically.
+
+1. Generate a new SSH key and add it to your GitHub account.
+
+   ```bash
+   # Creates a new ssh key, using the provided email as a label
+   ssh-keygen -t ed25519 -C "your@github_email"
+
+   # Start the ssh-agent in the background (if not already running)
+   eval "$(ssh-agent -s)"
+
+   # Add your SSH private key to the ssh-agent
+   ssh-add PATH/TO/.SSH/PRIVATE_KEY   # e.g. ~/.ssh/id_ed25519
+   ```
+
+2. Add the SSH key to your GitHub account.
+
+   - [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+
+3. Set your user name and email address to your GitHub username and email.
+
+   ```bash
+   git config --global user.name "your_github_username"
+   git config --global user.email "your@github_email"
+   ```
+
+4. Set global git configuration for signing.
+
+   ```bash
+   git config --global gpg.format ssh
+   git config --global gpg.ssh.defaultKeyCommand "ssh-add -L"
+   ```
+
+5. Add following line to your settings.json in Visual Studio Code.
+
+   ```json
+   "git.enableCommitSigning": true
+   ```
