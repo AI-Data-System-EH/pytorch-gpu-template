@@ -14,36 +14,49 @@
 ## :orange_book: Introduction
 
 - PyTorch GPU boilerplate for deep learning projects.
-- Also includes Ruff, Pre-commit, and Poetry set-up for a complete development environment.
+- Also includes Ruff, Pytest, Pre-commit, Poetry set-up for a development environment.
 - **[Branch: devcontainer]** Provides a [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers) set-up for GitHub Codespaces and Visual Studio Code Remote Development.
 
 <table style="margin: 0; border: none">
   <tr style="border: none">
+    <!--::: Pytorch -->
     <td align="center" width="25%">
-      <img alt="PyTorch" height="200" src="https://pytorch.org/assets/images/pytorch-logo.png" />
       <a href="https://pytorch.org/" target="_blank">
-        <img src="https://img.shields.io/badge/PyTorch-2.2.0--cu121-EE4C2C?style=for-the-badge&logo=PyTorch&logoColor=EE4C2C" />
+        <img alt="PyTorch" height="200" src="https://pytorch.org/assets/images/pytorch-logo.png" />
       </a>
-      <a href="https://pytorch.org/vision/stable/index.html" target="_blank">
-        <img src="https://img.shields.io/badge/Torchvision-0.17.0-EE4C2C?style=for-the-badge&logo=PyTorch&logoColor=EE4C2C" />
+      <a href="https://pypi.org/project/torch/" target="_blank">
+        <img src="https://img.shields.io/pypi/v/torch?style=for-the-badge&logo=pytorch&logoColor=EE4C2C&color=EE4C2C">
+      </a>
+      <a href="https://pypi.org/project/torchvision/" target="_blank">
+        <img src="https://img.shields.io/pypi/v/torchvision?style=for-the-badge&logo=pytorch&logoColor=EE4C2C&color=EE4C2C">
       </a>
     </td>
+    <!--::: Poetry -->
     <td align="center" width="25%">
-      <img alt="Poetry" height="200" src="https://python-poetry.org/images/logo-origami.svg">
       <a href="https://python-poetry.org/" target="_blank">
-        <img src="https://img.shields.io/badge/Poetry-1.8.1-60A5FA?style=for-the-badge&logo=Poetry&logoColor=60A5FA" />
+        <img alt="Poetry" height="180" src="https://python-poetry.org/images/logo-origami.svg">
+      </a>
+      <a href="https://pypi.org/project/poetry/" target="_blank">
+        <img src="https://img.shields.io/pypi/v/poetry?style=for-the-badge&logo=poetry&logoColor=60A5FA&color=60A5FA">
       </a>
     </td>
+    <!--::: Python -->
     <td align="center" width="25%">
       <img alt="Python" height="200" src="https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png" />
       <a href="https://www.python.org/" target="_blank">
         <img src="https://img.shields.io/badge/Python-3.12.2-3776AB?style=for-the-badge&logo=Python&logoColor=FFD43B" />
       </a>
+      <a href="https://www.python.org/downloads/" target="_blank">
+        <img src="https://img.shields.io/pypi/pyversions/torch?label=pytorch">
+      </a>
     </td>
+    <!--::: Jupyter -->
     <td align="center" width="25%">
-      <img alt="Jupyter" height="200" src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg" />
       <a href="https://jupyter.org/" target="_blank">
-        <img src="https://img.shields.io/badge/Notebook-7.1.0-F37626?style=for-the-badge&logo=Jupyter&logoColor=F37626" />
+        <img alt="Jupyter" height="200" src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg" />
+      </a>
+      <a href="https://pypi.org/project/notebook/" target="_blank">
+        <img src="https://img.shields.io/pypi/v/notebook?style=for-the-badge&logo=jupyter&logoColor=F37626&color=F37626">
       </a>
     </td>
   </tr>
@@ -51,31 +64,40 @@
 
 <table style="margin: 0; border: none">
   <tr style="border: none">
+    <!--::: Ruff -->
     <td align="center" width="25%">
-      <img alt="Ruff" height="200" src="https://github.com/astral-sh/ruff-vscode/blob/main/icon.png?raw=true">
-      <a href="https://www.python.org/" target="_blank">
-        <img src="https://img.shields.io/badge/Ruff-0.2.2-30173D?style=for-the-badge&logo=Ruff&logoColor=D7FF64" />
+      <a href="https://docs.astral.sh/ruff/" target="_blank">
+        <img alt="Ruff" height="180" src="https://github.com/astral-sh/ruff-vscode/blob/main/icon.png?raw=true">
+      </a>
+      <a href="https://pypi.org/project/ruff/" target="_blank">
+        <img src="https://img.shields.io/pypi/v/ruff?style=for-the-badge&logo=Pytest&logoColor=D7FF64&color=30173D">
       </a>
     </td>
+    <!--::: Pytest -->
     <td align="center" width="25%">
-      <img alt="Pytest" height="200" src="https://docs.pytest.org/en/8.0.x/_static/pytest_logo_curves.svg">
       <a href="https://docs.pytest.org/en/8.0.x/" target="_blank">
-        <img src="https://img.shields.io/badge/Pytest-8.0.1-0A9EDC?style=for-the-badge&logo=Pytest&logoColor=0A9EDC" />
+        <img alt="Pytest" height="200" src="https://docs.pytest.org/en/8.0.x/_static/pytest_logo_curves.svg">
       </a>
-      <a href="https://github.com/pytest-dev/pytest-cov" target="_blank">
-        <img src="https://img.shields.io/badge/Pytest--cov-4.1.0-0A9EDC?style=for-the-badge&logo=Pytest&logoColor=0A9EDC" />
+      <a href="https://pypi.org/project/pytest/" target="_blank">
+        <img src="https://img.shields.io/pypi/v/pytest?style=for-the-badge&logo=Pytest&logoColor=0A9EDC&color=0A9EDC">
       </a>
     </td>
+    <!--::: Pre-commit -->
     <td align="center" width="25%">
-      <img alt="Pre-commit" height="200" src="https://pre-commit.com/logo.svg">
       <a href="https://pre-commit.com/" target="_blank">
-        <img src="https://img.shields.io/badge/Pre--commit-3.6.2-FAB041?style=for-the-badge&logo=Pre-commit&logoColor=FAB041" />
+        <img alt="Pre-commit" height="200" src="https://pre-commit.com/logo.svg">
+      </a>
+      <a href="https://pypi.org/project/pre-commit/" target="_blank">
+        <img src="https://img.shields.io/pypi/v/pre-commit?style=for-the-badge&logo=Pre-commit&logoColor=FAB041&color=FAB041">
       </a>
     </td>
+    <!--::: Pyright -->
     <td align="center" width="25%">
-      <img alt="Pyright" height="200" src="https://ms-pyright.gallerycdn.vsassets.io/extensions/ms-pyright/pyright/1.1.350/1707151800648/Microsoft.VisualStudio.Services.Icons.Default">
       <a href="https://microsoft.github.io/pyright/" target="_blank">
-        <img src="https://img.shields.io/badge/Pyright-1.1.350-B8B87E?style=for-the-badge&logo=python&logoColor=B8B87E" />
+        <img alt="Pyright" height="200" src="https://ms-pyright.gallerycdn.vsassets.io/extensions/ms-pyright/pyright/1.1.350/1707151800648/Microsoft.VisualStudio.Services.Icons.Default">
+      </a>
+      <a href="https://pypi.org/project/pyright/" target="_blank">
+        <img src="https://img.shields.io/pypi/v/pyright?style=for-the-badge&logo=python&logoColor=B8B87E&color=B8B87E">
       </a>
     </td>
   </tr>
@@ -96,7 +118,8 @@
 
 - Click the `Use this template` button on the top-right of this repository.
   - [How to use a repository as a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
-- Select the `include all branches` option to include the `devcontainer` branch.
+- <s>Select the `include all branches` option to include the `devcontainer` branch.</s>
+  - `devcontainer` branch is included by default branch.
 - Click the `Create repository` button.
 
 ### 3. Open the repository in Visual Studio Code
@@ -106,6 +129,8 @@
   - You may need to install [Docker](https://www.docker.com/) if you are using a local machine.
 - A new container will be created and the repository will be opened in the new container.
   (It may take a few minutes to build the container for the first time.)
+- (Optional) Click the `Reopen in Workspace` button to open the repository in the workspace.
+  - Additional extensions and settings will be applied to the workspace.
 
 ### 4. Install additional dependencies
 
