@@ -5,8 +5,13 @@
         },
     ],
     "settings": {
-        // ## Terminal settings
+        //::: Terminal settings :::
         "terminal.integrated.fontFamily": "'MesloLGS Nerd Font', 'CaskaydiaCove Nerd Font', Pretendard, 'Pretendard Variable'",
+
+        //::: Editor settings :::
+        "files.associations": {
+            "*.env": "env",
+        },
 
         //::: Extension Settings :::
 

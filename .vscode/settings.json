@@ -106,10 +106,6 @@
     },
     "evenBetterToml.taplo.configFile.path": ".config/taplo.toml",
 
-    "files.associations": {
-        "*.env": "env"
-    },
-
     "[markdown]": {
         "editor.defaultFormatter": "yzhang.markdown-all-in-one",
         "files.trimTrailingWhitespace": false,
@@ -118,7 +114,11 @@
     },
     "markdown.styles": [".config/extras/github-markdown.css"],
     "markdown.preview.scrollEditorWithPreview": false,
-    "markdown.preview.scrollPreviewWithEditor": false
+    "markdown.preview.scrollPreviewWithEditor": false,
+
+    "[env]": {
+        "editor.defaultFormatter": "IronGeek.vscode-env"
+    }
 
     /* #endregion */
 }

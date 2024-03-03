@@ -53,6 +53,10 @@ colorize sub "Updating System Packages..."
 sudo apt-get update
 sudo apt-get upgrade -y
 
+# Install common packages
+sudo apt-get install -y \
+    shc # Shell script compiler
+
 # locale
 sudo locale-gen ${LANG:-ko_KR.UTF-8}
 sudo update-locale LANG=${LANG:-ko_KR.UTF-8} LC_MESSAGES=${LC_MESSAGES:-POSIX}

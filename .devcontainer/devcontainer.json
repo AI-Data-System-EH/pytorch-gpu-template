@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
-    "name": "ubuntu/cuda",
+    "name": "ubuntu-cuda",
     // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
     // "image": "mcr.microsoft.com/devcontainers/base:jammy",
     "image": "nvidia/cuda:12.3.1-runtime-ubuntu22.04",
@@ -42,25 +42,16 @@
             "username": "vscode",
             "configureZshAsDefaultShell": true
         },
-        // "ghcr.io/devcontainers/features/git:1": {},
         "ghcr.io/devcontainers/features/python:1": {
             "installTools": false,
             "version": "latest"
         },
         "ghcr.io/devcontainers-contrib/features/poetry:2": {}
-        // "ghcr.io/devcontainers/features/node:1": {}
-        // "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
-        //     "plugins": "ssh-agent poetry zsh-autosuggestions zsh-syntax-highlighting zsh-completions fd",
-        //     "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting https://github.com/zsh-users/zsh-completions"
-        // }
     },
 
     // Configure tool-specific properties.
     "customizations": {
         "vscode": {
-            // "settings": {
-            //     "terminal.integrated.defaultProfile.linux": "zsh"
-            // },
             "extensions": [
                 "ms-python.python",
                 "ms-python.debugpy",
