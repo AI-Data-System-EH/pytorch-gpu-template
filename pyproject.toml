@@ -29,7 +29,7 @@ exclude = [
 
     [tool.poetry.group.dev.dependencies]
     pre-commit = "^3.6.2"
-    ruff       = "^0.2.2"
+    ruff       = "^0.3.0"
 
     [tool.poetry.group.test.dependencies]
     pytest     = "^8.0.2"
