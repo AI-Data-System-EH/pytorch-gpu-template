@@ -13,9 +13,9 @@
 
 ## :orange_book: Introduction
 
-- PyTorch GPU boilerplate for deep learning projects.
-- Also includes Ruff, Pytest, Pre-commit, Poetry set-up for a development environment.
-- **[Branch: devcontainer]** Provides a [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers) set-up for GitHub Codespaces and Visual Studio Code Remote Development.
+-   PyTorch GPU boilerplate for deep learning projects.
+-   Also includes Ruff, Pytest, Pre-commit, Poetry set-up for a development environment.
+-   **[Branch: devcontainer]** Provides a [devcontainer](https://code.visualstudio.com/docs/devcontainers/containers) set-up for Visual Studio Code Remote Development and GitHub Codespaces.
 
 <table style="margin: 0; border: none">
   <tr style="border: none">
@@ -107,35 +107,55 @@
 
 ### 1. Open Visual Studio Code with Remote Development
 
-- Install [Visual Studio Code](https://code.visualstudio.com/) and [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
-- Connect to a <u>(Case 1) Remote-SSH server</u> or create a new <u>(Case 2) Codespaces with this repository</u>.
-  1. (Recommend) [How to Connect Remote-SSH](https://code.visualstudio.com/docs/remote/ssh)
-  2. Install [GitHub Codespaces Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) and Create a new [Codespaces](https://github.com/features/codespaces) with this repository.
-     <i>important!</i> Check you have access to Codespaces plan. (free accounts does not support GPU machines.)
-- :information_source: Be aware that this devcontainer is set up for a GPU environment. you may need a gpu-enabled remote server or Codespaces.
+-   Install [Visual Studio Code](https://code.visualstudio.com/) and [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
+-   Connect to a <u>(Case 1) Remote-SSH server</u> or create a new <u>(Case 2) Codespaces with this repository</u>.
+    1. (Recommend) [How to Connect Remote-SSH](https://code.visualstudio.com/docs/remote/ssh)
+    2. Install [GitHub Codespaces Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) and Create a new [Codespaces](https://github.com/features/codespaces) with this repository.
+       <i>important!</i> Check you have access to Codespaces plan. (free accounts does not support GPU machines.)
+-   :information_source: Be aware that this devcontainer is set up for a GPU environment. you may need a gpu-enabled remote server or Codespaces.
 
 ### 2. Create your repository using template with the <u><i>devcontainer</i></u> branch
 
-- Click the `Use this template` button on the top-right of this repository.
-  - [How to use a repository as a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
-- <s>Select the `include all branches` option to include the `devcontainer` branch.</s>
-  - `devcontainer` branch is included by default branch.
-- Click the `Create repository` button.
+-   Click the `Use this template` button on the top-right of this repository.
+    -   [How to use a repository as a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
+-   Click the `Create repository` button.
 
 ### 3. Open the repository in Visual Studio Code
 
-- Open the repository in Remote Server or Codespaces.
-- Click the `Reopen in Container` button to open the repository in the devcontainer.
-  - You may need to install [Docker](https://www.docker.com/) if you are using a local machine.
-- A new container will be created and the repository will be opened in the new container.
-  (It may take a few minutes to build the container for the first time.)
-- (Optional) Click the `Reopen in Workspace` button to open the repository in the workspace.
-  - Additional extensions and settings will be applied to the workspace.
+-   Open the repository in Remote Server or Codespaces.
+-   Click the `Reopen in Container` button to open the repository in the devcontainer.
+
+    -   You may need to install [Docker](https://www.docker.com/) if you are using a local machine.
+    -   check `devcontainer.json` for more information about the devcontainer settings.
+        -   container environment
+            | key                          | description                              | default           |
+            | ---------------------------- | ---------------------------------------- | ----------------- |
+            | `TZ`                         | Timezone                                 | `Asia/Seoul`      |
+            | `LANG`                       | Locale                                   | `ko_KR.UTF-8`     |
+            | `LC_MESSAGES`                | Locale (POSIX for command output as eng) | `POSIX`           |
+            | `NVIDIA_VISIBLE_DEVICES`     | GPU device id (0, 1, 2, ...)             | `all`             |
+            | `NVIDIA_DRIVER_CAPABILITIES` | GPU driver capabilities                  | `compute,utility` |
+            | `SKIP_PACKAGES_UPDATE`       | Skip package update (poetry, npm, ...)   | `false`           |
+            | `POETRY_WITHOUT_GROUPS`      | Skip poetry groups installation          |                   |
+
+-   A new container will be created and the repository will be opened in the new container.
+    (It may take a few minutes to build the container for the first time.)
+-   (Optional) Click the `Reopen in Workspace` button to open the repository in the workspace.
+    -   Additional extension settings will be applied to the workspace.
 
 ### 4. Install additional dependencies
 
-- Check [Poetry Managing Dependencies](https://python-poetry.org/docs/managing-dependencies/) for more information.
-- Check [Node Package Manager](https://www.npmjs.com/) for more information.
+-   Check [Poetry Managing Dependencies](https://python-poetry.org/docs/managing-dependencies/) for more information.
+-   Check [Node Package Manager](https://www.npmjs.com/) for more information.
+
+### 5. Start your project
+
+-   Start coding your project with the boilerplate.
+-   Other useful commands are listed in the [`.config/scripts/bin`](.config/scripts/bin) directory.
+    -   `update-script` : Update dependencies (git submodule, poetry, npm, pre-commit)
+    -   `cache-clean` : Clean cache files (`__pycache__`, `.pytest_cache`, `.coverage`, ...)
+
+<br/>
 
 ### Done! :tada:
 
@@ -149,44 +169,47 @@
 
 ### Commit Signinig with SSH (Verified Commit)
 
-- [How to sign commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)
+-   [How to sign commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)
 
 > **note**
 > You don't need to set up git on the devcontainer. The git configuration on the local machine will be reflected to the devcontainer automatically.
 
 1. Generate a new SSH key and add it to your GitHub account.
 
-   ```bash
-   # Creates a new ssh key, using the provided email as a label
-   ssh-keygen -t ed25519 -C "your@github_email"
+    ```bash
+    # Creates a new ssh key, using the provided email as a label
+    ssh-keygen -t ed25519 -C "your@github_email"
 
-   # Start the ssh-agent in the background (if not already running)
-   eval "$(ssh-agent -s)"
+    # Start the ssh-agent in the background (if not already running)
+    eval "$(ssh-agent -s)"
 
-   # Add your SSH private key to the ssh-agent
-   ssh-add PATH/TO/.SSH/PRIVATE_KEY   # e.g. ~/.ssh/id_ed25519
-   ```
+    # Add your SSH private key to the ssh-agent
+    ssh-add PATH/TO/.SSH/PRIVATE_KEY   # e.g. ~/.ssh/id_ed25519
+    ```
 
 2. Add the SSH key to your GitHub account.
 
-   - [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+    - [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-3. Set your user name and email address to your GitHub username and email.
+3. Set global git configuration for signing.
 
-   ```bash
-   git config --global user.name "your_github_username"
-   git config --global user.email "your@github_email"
-   ```
+    ```bash
+    git config --global gpg.format ssh
+    git config --global gpg.ssh.defaultKeyCommand "ssh-add -L"
+    ```
 
-4. Set global git configuration for signing.
+4. Add following line to your `settings.json` in Visual Studio Code.
 
-   ```bash
-   git config --global gpg.format ssh
-   git config --global gpg.ssh.defaultKeyCommand "ssh-add -L"
-   ```
+    ```json
+    "git.enableCommitSigning": true
+    ```
 
-5. Add following line to your settings.json in Visual Studio Code.
+5. Set your user name and email address to your GitHub username and email.
 
-   ```json
-   "git.enableCommitSigning": true
-   ```
+    > :memo: **Note**<br/>
+    > Set name and email for the repository(--local), <u>_not globally(--global)_</u>.
+
+    ```bash
+    git config user.name "your_github_username"
+    git config user.email "your@github_email"
+    ```

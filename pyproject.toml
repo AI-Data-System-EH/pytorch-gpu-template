@@ -25,15 +25,18 @@ exclude = [
 
     [tool.poetry.group.pytorch.dependencies]
     torch       = "^2.2.1"
-    torchvision = "^0.17.0"
+    torchvision = "^0.17.1"
 
     [tool.poetry.group.dev.dependencies]
     pre-commit = "^3.6.2"
-    ruff       = "^0.2.2"
+    ruff       = "^0.3.2"
+    pyright    = "^1.1.353"
 
     [tool.poetry.group.test.dependencies]
-    pytest     = "^8.0.2"
-    pytest-cov = "^4.1.0"
+    pytest         = "^8.1.1"
+    pytest-cov     = "^4.1.0"
+    pytest-ruff    = "^0.3"
+    pytest-pyright = "^0.0.6"
 
     [tool.poetry.group.utils.dependencies]
     pathlib  = "^1.0.1"

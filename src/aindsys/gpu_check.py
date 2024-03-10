@@ -3,10 +3,11 @@ import sys
 import torch
 import torch.version
 
+from pprint import pprint
 
 # Check if CUDA is available
 cuda = torch.cuda.is_available()
-print(f"CUDA is available: {cuda}")
+pprint(f"CUDA is available: {cuda}")
 
 
 # Get the number of GPUs

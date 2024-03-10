@@ -67,11 +67,16 @@ sudo apt-get autoremove -y && sudo apt-get clean
 #################################### ZSH #######################################
 # Update .zshrc
 colorize sub "Setting up oh-my-zsh..."
+mv ~/.zshrc ~/.zshrc.bak
 cp ./.config/extras/.zshrc ~/.zshrc
 cp ./.config/extras/.p10k.zsh ~/.p10k.zsh
 
 # Install zsh plugin dependencies
-sudo apt-get install fzf -y
+# sudo apt-get install fzf -y
+if [ ! -d "~/.fzf" ]; then
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install --all --no-fish
+fi
 
 # Install zsh-autosuggestions
 if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
@@ -86,6 +91,11 @@ fi
 # Install zsh-completions
 if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-completions" ]; then
     git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
+fi
+
+# Install zsh-history-substring-search
+if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-history-substring-search" ]; then
+    git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
 fi
 
 # Install Powerlevel10k
@@ -149,6 +159,7 @@ poetry self add poetry-plugin-up
 
 # if 'SKIP_PACKAGES_UPDATE' is set to 'true', skip the package update
 if [ "$SKIP_PACKAGES_UPDATE" != "true" ]; then
+    colorize sub "Running update-script..."
     update-script # .config/scripts/bin/update-script
 else
     colorize warning "Skipping package update..."

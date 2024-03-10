@@ -1,6 +1,8 @@
 #!/bin/bash
 # ::: Shell Script to update the project :::
 
+# shc -r -f .config/scripts/update-script.sh -o .config/scripts/bin/update-script && rm .config/scripts/update-script.sh.x.c
+
 check_mark="\u2705"
 question_mark="\u2754"
 
@@ -48,7 +50,20 @@ git submodule update --init --recursive
 colorize main "Updating Poetry python packages..."
 
 poetry self update
-poetry up --latest
+
+# "POETRY_WITHOUT_GROUPS": "pytorch,test"
+# --without=pytorch,test
+_poetry_up_with_options() {
+    local groups
+    groups="${POETRY_WITHOUT_GROUPS:-}"
+    if [ -n "$groups" ]; then
+        colorize sub "Excluding groups: $groups"
+        poetry up --latest --without="$groups"
+    else
+        poetry up --latest
+    fi
+}
+_poetry_up_with_options
 
 # Update installed packages
 # poetry update

@@ -1,3 +1,6 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -7,7 +10,6 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export FZF_BASE=/usr/bin/fzf
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -16,7 +18,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
+#ZSH_THEME="devcontainers"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -80,35 +82,33 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
-    branch
-    command-not-found
-    colorize
-    fd
-    fig
-    # fzf
-    history
-    history-substring-search
-    jsontools
-    last-working-dir
-    nmap
-    nvm
-    per-directory-history
-    poetry
-    poetry-env
-    safe-paste
-    sudo
-    ssh-agent
-    systemadmin
-    themes
-    ufw
-    zsh-interactive-cd
-    zsh-completions
-    zsh-syntax-highlighting
-    zsh-autosuggestions
+  git
+  branch
+  command-not-found
+  colorize
+  fd
+  fig
+  fzf
+  jsontools
+  nmap
+  nvm
+  poetry
+  poetry-env
+  safe-paste
+  sudo
+  ssh-agent
+  systemadmin
+  themes
+  ufw
+  history
+  last-working-dir
+  per-directory-history
+  zsh-interactive-cd
+  zsh-history-substring-search
+  zsh-completions
+  zsh-syntax-highlighting
+  zsh-autosuggestions
 )
-
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 source $ZSH/oh-my-zsh.sh
 
@@ -141,3 +141,25 @@ alias zshconfig="nano ~/.zshrc"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# SSH agent
+# https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials
+if [ -z "$SSH_AUTH_SOCK" ]; then
+   # Check for a currently running instance of the agent
+   RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
+   if [ "$RUNNING_AGENT" = "0" ]; then
+        # Launch a new instance of the agent
+        ssh-agent -s &> $HOME/.ssh/ssh-agent
+   fi
+   eval `cat $HOME/.ssh/ssh-agent`
+fi
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

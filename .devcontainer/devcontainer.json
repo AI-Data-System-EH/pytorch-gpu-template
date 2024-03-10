@@ -26,7 +26,11 @@
         "LC_MESSAGES": "POSIX",
         "NVIDIA_VISIBLE_DEVICES": "all",
         "NVIDIA_DRIVER_CAPABILITIES": "compute,utility",
-        "SKIP_PACKAGES_UPDATE": "false" // env variable using in post-create.sh
+        // env variable using in post-create.sh
+        "SKIP_PACKAGES_UPDATE": "false",
+        // groups to ignore when poetry install (see groups in pyproject.toml)
+        // "POETRY_WITHOUT_GROUPS": "pytorch,test"
+        "POETRY_WITHOUT_GROUPS": ""
     },
     "containerUser": "vscode",
 
@@ -35,6 +39,9 @@
 
     // Use 'postCreateCommand' to run commands after the container is created.
     "postCreateCommand": "zsh ${containerWorkspaceFolder}/.config/scripts/post-create.sh",
+    "waitFor": "postCreateCommand",
+
+    "shutdownAction": "stopContainer",
 
     // Features to add to the dev container. More info: https://containers.dev/features.
     "features": {
@@ -46,7 +53,8 @@
             "installTools": false,
             "version": "latest"
         },
-        "ghcr.io/devcontainers-contrib/features/poetry:2": {}
+        "ghcr.io/devcontainers-contrib/features/poetry:2": {},
+        "ghcr.io/withfig/features/fig:1": {}
     },
 
     // Configure tool-specific properties.

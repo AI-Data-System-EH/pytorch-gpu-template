@@ -12,14 +12,6 @@
 
     "overrides": [
         {
-            "files": "*.md",
-            "options": {
-                "printWidth": 200,
-                "tabWidth": 2,
-                "proseWrap": "preserve"
-            }
-        },
-        {
             "files": ["*.ini", "*.cfg"],
             "options": {
                 "iniSpaceAroundEquals": true,

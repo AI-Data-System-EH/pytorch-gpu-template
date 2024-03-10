@@ -110,11 +110,14 @@
         "editor.defaultFormatter": "yzhang.markdown-all-in-one",
         "files.trimTrailingWhitespace": false,
         "editor.wordWrap": "bounded",
-        "editor.wordWrapColumn": 200
+        "editor.wordWrapColumn": 200,
+        "cSpell.fixSpellingWithRenameProvider": true,
+        "cSpell.advanced.feature.useReferenceProviderWithRename": true,
+        "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/"
     },
     "markdown.styles": [".config/extras/github-markdown.css"],
-    "markdown.preview.scrollEditorWithPreview": false,
-    "markdown.preview.scrollPreviewWithEditor": false,
+    // "markdown.preview.scrollEditorWithPreview": false,
+    // "markdown.preview.scrollPreviewWithEditor": false,
 
     "[env]": {
         "editor.defaultFormatter": "IronGeek.vscode-env"
