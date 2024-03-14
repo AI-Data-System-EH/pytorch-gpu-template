@@ -204,6 +204,14 @@
     "git.enableCommitSigning": true
     ```
 
+    - Or you can enable it in the git configuration.
+
+        > [Signing commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)
+
+        ```bash
+        git config commit.gpgSign true
+        ```
+
 5. Set your user name and email address to your GitHub username and email.
 
     > :memo: **Note**<br/>
