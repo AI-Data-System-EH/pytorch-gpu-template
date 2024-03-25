@@ -28,7 +28,7 @@ exclude = [
     torchvision = "^0.17.1"
 
     [tool.poetry.group.dev.dependencies]
-    pre-commit = "^3.6.2"
+    pre-commit = "^3.7.0"
     ruff       = "^0.3.3"
     pyright    = "^1.1.354"
 
