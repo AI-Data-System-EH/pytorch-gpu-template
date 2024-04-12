@@ -9,6 +9,9 @@
 env/
 venv/
 
+# Python plugin cache
+.ruff_cache/
+
 # dotenv environment variable files
 # .env
 .env.development.local
