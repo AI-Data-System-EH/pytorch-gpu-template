@@ -70,24 +70,7 @@
                 "esbenp.prettier-vscode",
                 "tamasfe.even-better-toml",
                 "IronGeek.vscode-env",
-                "foxundermoon.shell-format",
-                "GitHub.copilot",
-                "mhutchie.git-graph",
-                "aaron-bond.better-comments",
-                "maptz.regionfolder",
-                "njpwerner.autodocstring",
-                "streetsidesoftware.code-spell-checker",
-                "yzhang.markdown-all-in-one",
-                "bierner.markdown-checkbox",
-                "bierner.markdown-emoji",
-                "bierner.markdown-footnotes",
-                "bierner.markdown-preview-github-styles",
-                "bierner.emojisense",
-                "usernamehw.errorlens",
-                "natqe.reload",
-                "mutantdino.resourcemonitor",
-                "IBM.output-colorizer",
-                "jerrygoyal.shortcut-menu-bar"
+                "foxundermoon.shell-format"
             ]
         }
     }

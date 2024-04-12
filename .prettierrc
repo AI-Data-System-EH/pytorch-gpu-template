@@ -9,15 +9,21 @@
     "singleAttributePerLine": false,
 
     "plugins": ["prettier-plugin-multiline-arrays"],
+    "multilineArraysWrapThreshold": 0,
 
     "overrides": [
         {
-            "files": ["*.ini", "*.cfg"],
+            "files": ["*.yml", "*.yaml"],
             "options": {
-                "iniSpaceAroundEquals": true,
-                "parser": "ini",
-                "printWidth": 80,
-                "plugins": ["prettier-plugin-ini"]
+                "tabWidth": 2,
+                "parser": "yaml"
+            }
+        },
+        {
+            "files": "*.md",
+            "options": {
+                "printWidth": 200,
+                "tabWidth": 2
             }
         },
         {
@@ -25,6 +31,15 @@
             "options": {
                 "parser": "jsonc",
                 "trailingComma": "none"
+            }
+        },
+        {
+            "files": ["*.ini", "*.cfg"],
+            "options": {
+                "iniSpaceAroundEquals": true,
+                "parser": "ini",
+                "printWidth": 80,
+                "plugins": ["prettier-plugin-ini"]
             }
         }
     ]

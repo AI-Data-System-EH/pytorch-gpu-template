@@ -82,33 +82,53 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
-  branch
-  command-not-found
-  colorize
-  fd
-  fig
-  fzf
-  jsontools
-  nmap
-  nvm
-  poetry
-  poetry-env
-  safe-paste
-  sudo
-  ssh-agent
-  systemadmin
-  themes
-  ufw
-  history
-  last-working-dir
-  per-directory-history
-  zsh-interactive-cd
-  zsh-history-substring-search
-  zsh-completions
-  zsh-syntax-highlighting
-  zsh-autosuggestions
+    ######################################
+    history
+    jsontools
+    safe-paste
+    copypath
+    ######################################
+    command-not-found
+    sudo
+    systemadmin
+    ssh-agent
+    ######################################
+    colorize
+    themes
+    ######################################
+    git
+    branch
+    nvm
+    poetry
+    ######################################
+    ufw
+    nmap
+    ######################################
+    ubuntu
+    ######################################
+    last-working-dir
+    per-directory-history
+    ######################################
+    zsh-completions
+    zsh-interactive-cd
+    zsh-navigation-tools
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    fast-syntax-highlighting
+    zsh-history-substring-search # load after zsh-syntax-highlighting
+    ######################################
+    fig
+    fzf
+    ######################################
+    auto-color-ls
+    autoupdate # upgrade_oh_my_zsh_custom
+    zsh-bat
+    zsh-safe-rm
+    ######################################
 )
+
+# zsh-completions
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 source $ZSH/oh-my-zsh.sh
 
@@ -136,13 +156,28 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias zshconfig="nano ~/.zshrc"
+alias zshenv="nano ~/.zshenv"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+##############################################################################################
+# Plugins
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
+# autoupdate
+UPDATE_ZSH_DAYS=1
+# ZSH_CUSTOM_AUTOUPDATE_QUIET=true
+
+# colorls
+source $(dirname $(gem which colorls))/tab_complete.sh
+alias lc='colorls -lA --sd'
+alias ls='colorls'
+
+##############################################################################################
+# Custom Environments
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -160,6 +195,43 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
    fi
    eval `cat $HOME/.ssh/ssh-agent`
 fi
+
+##############################################################################################
+# History
+
+[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
+HISTORY_IGNORE="(l|ls|ls *|la|la *|lc|cd|cd -|cd *|pwd|exit|history|history-delete|hsd)"
+
+setopt HIST_IGNORE_DUPS         # don't record an entry that was just recorded again.
+setopt HIST_IGNORE_SPACE        # remove command line from history when first character is a space
+setopt HIST_REDUCE_BLANKS  		# remove unnecessary blanks
+setopt HIST_EXPIRE_DUPS_FIRST   # delete duplicates first when HISTSIZE is exceeded
+setopt HIST_SAVE_NO_DUPS        # don't write duplicate entries in the history file
+setopt INC_APPEND_HISTORY_TIME  # append command to history file immediately after execution
+setopt EXTENDED_HISTORY  		# record command start time
+setopt EXTENDED_GLOB
+
+# https://github.com/junegunn/fzf/issues/3522#issuecomment-1872415948
+history-delete() {
+  local +h HISTORY_IGNORE=
+  local -a ignore
+  fc -pa "$HISTFILE"
+  selection=$(fc -rl 1 |
+  		awk '{ cmd=$0; sub(/^[ \t]*[0-9]+\**[ \t]+/, "", cmd); if (!seen[cmd]++)  print $0}' |
+  		fzf --multi --bind 'enter:become:echo {+f1}' --header="Tab: select, Enter: confirm delete, Esc: quit" --prompt="Search: " --no-sort --cycle
+      )
+  if [ -n "$selection" ]; then
+  	while IFS= read -r line; do ignore+=("${(b)history[$line]}"); done < "$selection"
+  	HISTORY_IGNORE="(${(j:|:)ignore})"
+  	# Write history excluding lines that match `$HISTORY_IGNORE` and read new history.
+  	fc -W && fc -p "$HISTFILE"
+  else
+  	echo "nothing deleted from history"
+  fi
+}
+alias hsd=history-delete
+
+##############################################################################################
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

@@ -6,7 +6,7 @@
     ],
     "settings": {
         //::: Terminal settings :::
-        "terminal.integrated.fontFamily": "'MesloLGS Nerd Font', 'CaskaydiaCove Nerd Font', Pretendard, 'Pretendard Variable'",
+        "terminal.integrated.fontFamily": "'MesloLGS Nerd Font', 'CaskaydiaCove Nerd Font', Pretendard, 'Pretendard Variable', monospace",
 
         //::: Editor settings :::
         "files.associations": {
@@ -38,10 +38,20 @@
 
         "cSpell.enabled": true,
         "cSpell.allowCompoundWords": true,
-        "cSpell.enableFiletypes": ["!json", "!jsonc", "plaintext", "yaml", "toml"],
+        "cSpell.ignorePaths": [
+            "package-lock.json",
+            "node_modules",
+            "vscode-extension",
+            ".git/objects",
+            ".vscode",
+            ".vscode-insiders",
+            ".devcontainer",
+            "*.code-workspace",
+            "LICENSE",
+        ],
+        // "cSpell.enableFiletypes": ["!json", "!jsonc"],
         "cSpell.spellCheckOnlyWorkspaceFiles": true,
         "cSpell.words": [
-            "aindsys",
             "coveragerc",
             "CUDA",
             "cudnn",
@@ -64,7 +74,6 @@
             "tada",
             "taplo",
             "tqdm",
-            "TUKOREA",
             "venv",
             "virtualenvs",
             "xfail",
@@ -225,8 +234,8 @@
         "resmon.show.cpufreq": true,
         "resmon.show.cputemp": true,
         "resmon.show.cpuusage": true,
-        // "resmon.show.disk": true,
-        "resmon.show.battery": true,
+        "resmon.show.disk": false,
+        "resmon.show.battery": false,
         "resmon.show.mem": true,
 
         /* #endregion */

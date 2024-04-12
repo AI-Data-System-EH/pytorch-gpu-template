@@ -6,12 +6,30 @@
 
 version: 2
 updates:
-    - package-ecosystem: "devcontainers"
-      directory: "/"
-      schedule:
-          interval: weekly
+  - package-ecosystem: devcontainers
+    directory: /
+    schedule:
+      interval: weekly
+      timezone: Asia/Seoul
+    target-branch: devcontainer
+    labels:
+      - "dependencies"
 
-    - package-ecosystem: "pip"
-      directory: "/"
-      schedule:
-          interval: weekly
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: weekly
+      timezone: Asia/Seoul
+    target-branch: devcontainer
+    labels:
+      - "dependencies"
+    # open-pull-requests-limit: 3
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      timezone: Asia/Seoul
+    target-branch: devcontainer
+    labels:
+      - "dependencies"

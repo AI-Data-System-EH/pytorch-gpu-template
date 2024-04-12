@@ -1,7 +1,11 @@
 {
     // ::: Editor :::
 
-    "editor.rulers": [80, 100, 120],
+    "editor.rulers": [
+        80,
+        100,
+        120
+    ],
 
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
@@ -32,8 +36,6 @@
     "files.insertFinalNewline": true,
 
     "workbench.editorLargeFileConfirmation": 1500,
-
-    "cSpell.enabled": false,
 
     // ::: Language :::
 
@@ -84,7 +86,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "prettier.printWidth": 100,
     "prettier.tabWidth": 4,
-    "prettier.withNodeModules": true,
+    // "prettier.withNodeModules": true,
     // "prettier.configPath": ".config/.prettierrc",
 
     "[shellscript]": {
@@ -98,8 +100,12 @@
             "source.organizeImports": "always"
         }
     },
-    "ruff.format.args": ["--config=.config/ruff.toml"],
-    "ruff.lint.args": ["--config=.config/ruff.toml"],
+    "ruff.format.args": [
+        "--config=.config/ruff.toml"
+    ],
+    "ruff.lint.args": [
+        "--config=.config/ruff.toml"
+    ],
 
     "[toml]": {
         "editor.defaultFormatter": "tamasfe.even-better-toml"
@@ -115,9 +121,24 @@
         "cSpell.advanced.feature.useReferenceProviderWithRename": true,
         "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/"
     },
-    "markdown.styles": [".config/extras/github-markdown.css"],
+    "markdown.styles": [
+        ".config/extras/github-markdown.css"
+    ],
     // "markdown.preview.scrollEditorWithPreview": false,
     // "markdown.preview.scrollPreviewWithEditor": false,
+
+    "markdownlint.config": {
+        "MD033": false, // no-inline-html
+        "MD034": false, // no-bare-urls
+        "MD041": false, // first-line-heading
+        "MD012": {
+            // no-multiple-blanks
+            "maximum": 3
+        }
+    },
+    "markdownlint.ignore": [
+        "LICENSE"
+    ],
 
     "[env]": {
         "editor.defaultFormatter": "IronGeek.vscode-env"
