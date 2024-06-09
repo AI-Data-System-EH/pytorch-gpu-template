@@ -2,7 +2,7 @@
   "devDependencies": {
     "prettier": "^3.2.5",
     "prettier-plugin-ini": "^1.1.0",
-    "prettier-plugin-multiline-arrays": "^3.0.4",
+    "prettier-plugin-multiline-arrays": "^3.0.6",
     "prettier-plugin-sh": "^0.14.0"
   }
 }
