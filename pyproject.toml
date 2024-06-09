@@ -44,7 +44,7 @@ exclude = [
     tqdm     = "^4.66.2"
 
     [tool.poetry.group.jupyter.dependencies]
-    notebook = "^7.1.2"
+    notebook = "^7.2.1"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
