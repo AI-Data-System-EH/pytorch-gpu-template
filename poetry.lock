@@ -1576,6 +1576,7 @@ description = "Nvidia JIT LTO Library"
 optional = false
 python-versions = ">=3"
 files = [
+    {file = "nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_aarch64.whl", hash = "sha256:4abe7fef64914ccfa909bc2ba39739670ecc9e820c83ccc7a6ed414122599b83"},
     {file = "nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl", hash = "sha256:06b3b9b25bf3f8af351d664978ca26a16d2c5127dbd53c0497e28d1fb9611d57"},
     {file = "nvidia_nvjitlink_cu12-12.4.127-py3-none-win_amd64.whl", hash = "sha256:fd9020c501d27d135f983c6d3e244b197a7ccad769e34df53a42e276b0e25fa1"},
 ]
@@ -2017,13 +2018,13 @@ windows-terminal = ["colorama (>=0.4.6)"]
 
 [[package]]
 name = "pyright"
-version = "1.1.358"
+version = "1.1.369"
 description = "Command line wrapper for pyright"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pyright-1.1.358-py3-none-any.whl", hash = "sha256:0995b6a95eb11bd26f093cd5dee3d5e7258441b1b94d4a171b5dc5b79a1d4f4e"},
-    {file = "pyright-1.1.358.tar.gz", hash = "sha256:185524a8d52f6f14bbd3b290b92ad905f25b964dddc9e7148aad760bd35c9f60"},
+    {file = "pyright-1.1.369-py3-none-any.whl", hash = "sha256:06d5167a8d7be62523ced0265c5d2f1e022e110caf57a25d92f50fb2d07bcda0"},
+    {file = "pyright-1.1.369.tar.gz", hash = "sha256:ad290710072d021e213b98cc7a2f90ae3a48609ef5b978f749346d1a47eb9af8"},
 ]
 
 [package.dependencies]
@@ -2983,4 +2984,4 @@ test = ["websockets"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "8bc0405e9e458c79251bc8e67041f5a4f4985bb6fd0f85669c3a34ac39398d43"
+content-hash = "d5b79d7d05d2e9c318c26fd551b567b08aea23a7edfc573515d638d2b715930d"
