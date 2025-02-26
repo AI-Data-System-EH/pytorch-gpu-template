@@ -57,83 +57,20 @@ sudo apt-get upgrade -y
 sudo apt-get install -y \
     shc `# Shell script compiler` \
     bat `# cat clone with syntax highlighting` \
-    ruby-full `# Ruby`
+    ruby-dev `# Ruby`
 
 # locale
 sudo locale-gen ${LANG:-ko_KR.UTF-8}
 sudo update-locale LANG=${LANG:-ko_KR.UTF-8} LC_MESSAGES=${LC_MESSAGES:-POSIX}
 sudo apt-get install language-pack-ko -y
 
-sudo apt-get autoremove -y && sudo apt-get clean
+sudo apt-get autoremove -y && sudo apt-get autoclean
 
 #################################### ZSH #######################################
 # Update .zshrc
 colorize sub "Setting up oh-my-zsh..."
-mv ~/.zshrc ~/.zshrc.bak
-cp ./.config/extras/.zshrc ~/.zshrc
-cp ./.config/extras/.p10k.zsh ~/.p10k.zsh
 
-# Install zsh plugin dependencies
-# sudo apt-get install fzf -y
-if [ ! -d "~/.fzf" ]; then
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install --all --no-fish
-fi
-
-# Install zsh-autosuggestions
-if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-fi
-
-# Install zsh-syntax-highlighting
-if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ]; then
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-fi
-
-# Install fast-syntax-highlighting
-if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting" ]; then
-    git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
-fi
-
-# Install zsh-completions
-if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-completions" ]; then
-    git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-completions
-fi
-
-# Install zsh-history-substring-search
-if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-history-substring-search" ]; then
-    git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
-fi
-
-# Install Powerlevel10k
-if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then
-    git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
-fi
-
-# Install zsh-safe-rm
-if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-safe-rm" ]; then
-    git clone https://github.com/mattmc3/zsh-safe-rm ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-safe-rm
-fi
-
-# Install zsh-bat
-if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-bat" ]; then
-    git clone https://github.com/fdellwing/zsh-bat.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-bat
-fi
-
-# Install autoupdate
-if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/autoupdate" ]; then
-    git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/autoupdate
-fi
-
-# Install auto-color-ls
-if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/auto-color-ls" ]; then
-    git clone https://github.com/gretzky/auto-color-ls ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/auto-color-ls
-fi
-
-# Install colorls dependency (ruby gem)
-if ! command -v colorls &>/dev/null; then
-    sudo gem install colorls
-fi
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/AI-Data-system-EH/user-content/main/zsh/install.sh)" -- --install-deps --no-gh
 
 # Change the default shell to zsh
 sudo chsh -s $(which zsh)
@@ -173,31 +110,18 @@ npm update -g
 
 # NPM packages in the project
 colorize sub "Installing Prettier Plugins in Project..."
-npm install -D prettier prettier-plugin-ini prettier-plugin-multiline-arrays prettier-plugin-sh
+# npm install -D prettier prettier-plugin-ini prettier-plugin-multiline-arrays prettier-plugin-sh
 npm cache clean --force
 
 ################################## Poetry ######################################
 # Poetry global configuration & packages
+colorize sub "Installing Poetry..."
+
 poetry config virtualenvs.create true
 poetry config virtualenvs.in-project true
 poetry config virtualenvs.path .venv
 
-colorize sub "Installing Poetry Plugins globally..."
-poetry self add poetry-plugin-up
-
-############################## Custom Scripts ##################################
-# Change the permissions of the scripts
-# sudo chmod +x ./.config/scripts/*.sh
-
-# if 'SKIP_PACKAGES_UPDATE' is set to 'true', skip the package update
-if [ "$SKIP_PACKAGES_UPDATE" != "true" ]; then
-    colorize sub "Running update-script..."
-    update-script # .config/scripts/bin/update-script
-else
-    colorize warning "Skipping package update..."
-fi
-
-cache-clean # .config/scripts/bin/cache-clean
+poetry install
 
 ################################ End of Script #################################
 # End of the installation

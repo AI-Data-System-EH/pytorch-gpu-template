@@ -1,17 +1,8 @@
 #::: Configuration for pre-commit hooks: https://pre-commit.com/
 
 repos:
-  - repo: local
-    hooks:
-      - id: cache-clean
-        name: cache-clean (script)
-        entry: ./.config/scripts/cache-clean.sh
-        language: script
-        pass_filenames: false
-        args: ["."]
-
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: check-merge-conflict
       - id: check-vcs-permalinks
@@ -35,7 +26,7 @@ repos:
         args: ["--fix=lf"]
 
   - repo: https://github.com/python-poetry/poetry
-    rev: 1.8.0
+    rev: 2.1.1
     hooks:
       - id: poetry-check
 
@@ -47,7 +38,7 @@ repos:
         # args: ["--config", "./.config/.prettierrc"]
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.3.7
+    rev: v0.9.7
     hooks:
       - id: ruff
         types_or: [python, pyi, jupyter]

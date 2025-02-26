@@ -1,6 +1,10 @@
 # IDE
 *:Zone.Identifier
 
+# OS generated files
+.DS_Store
+Thumbs.db
+
 # model weights
 **/*.pth
 
