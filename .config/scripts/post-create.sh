@@ -46,6 +46,7 @@ colorize() { # $1: color, $2: text
 
 colorize main "Running post-create.sh..."
 colorize sub "Current directory: $(pwd)"
+colorize sub "Current user: $(whoami)"
 
 #################################### APT #######################################
 
@@ -70,7 +71,8 @@ sudo apt-get autoremove -y && sudo apt-get autoclean
 # Update .zshrc
 colorize sub "Setting up oh-my-zsh..."
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/AI-Data-system-EH/user-content/main/zsh/install.sh)" -- --install-deps --no-gh
+sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/AI-Data-system-EH/user-content/main/zsh/install.sh)" -- --deps-only -y
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/AI-Data-system-EH/user-content/main/zsh/install.sh)" -- --no-gh --no-git --no-ssh -y
 
 # Change the default shell to zsh
 sudo chsh -s $(which zsh)

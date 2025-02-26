@@ -1,93 +1,80 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
-  "name": "ubuntu-cuda",
-  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  // "image": "mcr.microsoft.com/devcontainers/base:jammy",
-  // "image": "nvidia/cuda:12.3.1-runtime-ubuntu22.04",
-  "image": "nvidia/cuda:12.8.0-runtime-ubuntu24.04",
+    "name": "ubuntu-cuda",
+    "image": "nvidia/cuda:12.8.0-runtime-ubuntu24.04",
 
-  // prettier-ignore
-  "runArgs": [
+    // prettier-ignore
+    "runArgs": [
         "--name", "${localEnv:USER}-${localWorkspaceFolderBasename}",
         "--gpus", "all"
     ],
 
-  "hostRequirements": {
-    "gpu": true
-  },
-
-  "remoteEnv": {
-    "PATH": "${containerEnv:PATH}:${containerWorkspaceFolder}/.config/scripts/bin"
-  },
-
-  "containerEnv": {
-    "TZ": "Asia/Seoul",
-    "LANG": "ko_KR.UTF-8",
-    "LC_MESSAGES": "POSIX",
-    "NVIDIA_VISIBLE_DEVICES": "all",
-    "NVIDIA_DRIVER_CAPABILITIES": "compute,utility",
-    // env variable using in post-create.sh
-    "SKIP_PACKAGES_UPDATE": "false",
-    // groups to ignore when poetry install (see groups in pyproject.toml)
-    // "POETRY_WITHOUT_GROUPS": "pytorch,test"
-    "POETRY_WITHOUT_GROUPS": ""
-  },
-  "containerUser": "vscode",
-
-  "workspaceFolder": "/home/vscode/workspace/${localWorkspaceFolderBasename}",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/home/vscode/workspace/${localWorkspaceFolderBasename},type=bind,consistency=cached",
-
-  // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "zsh ${containerWorkspaceFolder}/.config/scripts/post-create.sh",
-  // "waitFor": "postCreateCommand",
-
-  "shutdownAction": "stopContainer",
-
-  // Features to add to the dev container. More info: https://containers.dev/features.
-  "features": {
-    "ghcr.io/devcontainers/features/common-utils:2": {
-      "username": "vscode",
-      "configureZshAsDefaultShell": true
+    "hostRequirements": {
+        "gpu": true
     },
-    "ghcr.io/devcontainers/features/python:1": {
-      "installTools": false,
-      "version": "latest"
-    },
-    "ghcr.io/devcontainers-contrib/features/poetry:2": {},
-    "ghcr.io/withfig/features/fig:1": {}
-  },
 
-  // Configure tool-specific properties.
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "ms-python.python",
-        "ms-python.debugpy",
-        "ms-python.vscode-pylance",
-        "ms-python.vscode-python-envs",
-        "ms-toolsai.jupyter",
-        "charliermarsh.ruff",
-        "esbenp.prettier-vscode",
-        "tamasfe.even-better-toml",
-        "IronGeek.vscode-env",
-        "foxundermoon.shell-format"
-      ]
+    "containerEnv": {
+        "TZ": "Asia/Seoul",
+        "LANG": "ko_KR.UTF-8",
+        "LC_MESSAGES": "POSIX",
+        "NVIDIA_VISIBLE_DEVICES": "all",
+        "NVIDIA_DRIVER_CAPABILITIES": "compute,utility"
+    },
+
+    "workspaceFolder": "/workspace/${localWorkspaceFolderBasename}",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace/${localWorkspaceFolderBasename},type=bind,consistency=cached",
+
+    "containerUser": "ubuntu",
+    // "remoteUser": "ubuntu",
+
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "/bin/bash -c '.config/scripts/post-create.sh'",
+    "waitFor": "postCreateCommand",
+
+    "shutdownAction": "stopContainer",
+
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "configureZshAsDefaultShell": true,
+            "installOhMyZsh": false
+        },
+        "ghcr.io/devcontainers/features/python:1": {
+            "installTools": false,
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers-contrib/features/poetry:2": {}
+    },
+
+    // Configure tool-specific properties.
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.debugpy",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter",
+                "charliermarsh.ruff",
+                "esbenp.prettier-vscode",
+                "tamasfe.even-better-toml",
+                "foxundermoon.shell-format"
+            ]
+        }
     }
-  }
 
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [9000],
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [9000],
 
-  // Use 'portsAttributes' to set default properties for specific forwarded ports.
-  // More info: https://containers.dev/implementors/json_reference/#port-attributes
-  // "portsAttributes": {
-  // 	"9000": {
-  // 		"label": "Hello Remote World",
-  // 		"onAutoForward": "notify"
-  // 	}
-  // },
+    // Use 'portsAttributes' to set default properties for specific forwarded ports.
+    // More info: https://containers.dev/implementors/json_reference/#port-attributes
+    // "portsAttributes": {
+    // 	"9000": {
+    // 		"label": "Hello Remote World",
+    // 		"onAutoForward": "notify"
+    // 	}
+    // },
 
-  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-  // "remoteUser": "root"
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    // "remoteUser": "root"
 }
