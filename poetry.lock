@@ -717,62 +717,59 @@ tqdm = ["tqdm"]
 
 [[package]]
 name = "h11"
-version = "0.14.0"
+version = "0.16.0"
 description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
 optional = false
-python-versions = ">=3.7"
-groups = ["jupyter"]
+python-versions = ">=3.8"
+groups = ["dev", "jupyter"]
 files = [
-    {file = "h11-0.14.0-py3-none-any.whl", hash = "sha256:e3fe4ac4b851c468cc8363d500db52c2ead036020723024a109d37346efaa761"},
-    {file = "h11-0.14.0.tar.gz", hash = "sha256:8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d"},
+    {file = "h11-0.16.0-py3-none-any.whl", hash = "sha256:63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"},
+    {file = "h11-0.16.0.tar.gz", hash = "sha256:4e35b956cf45792e4caa5885e69fba00bdbc6ffafbfa020300e549b208ee5ff1"},
 ]
 
 [[package]]
 name = "httpcore"
-version = "1.0.7"
+version = "0.13.2"
 description = "A minimal low-level HTTP client."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.6"
 groups = ["jupyter"]
 files = [
-    {file = "httpcore-1.0.7-py3-none-any.whl", hash = "sha256:a3fff8f43dc260d5bd363d9f9cf1830fa3a458b332856f34282de498ed420edd"},
-    {file = "httpcore-1.0.7.tar.gz", hash = "sha256:8551cb62a169ec7162ac7be8d4817d561f60e08eaa485234898414bb5a8a0b4c"},
+    {file = "httpcore-0.13.2-py3-none-any.whl", hash = "sha256:52b7d9413f6f5592a667de9209d70d4d41aba3fb0540dd7c93475c78b85941e9"},
+    {file = "httpcore-0.13.2.tar.gz", hash = "sha256:c16efbdf643e1b57bde0adc12c53b08645d7d92d6d345a3f71adfc2a083e7fd2"},
 ]
 
 [package.dependencies]
-certifi = "*"
-h11 = ">=0.13,<0.15"
+h11 = "==0.*"
+sniffio = "==1.*"
 
 [package.extras]
-asyncio = ["anyio (>=4.0,<5.0)"]
 http2 = ["h2 (>=3,<5)"]
-socks = ["socksio (==1.*)"]
-trio = ["trio (>=0.22.0,<1.0)"]
 
 [[package]]
 name = "httpx"
-version = "0.28.1"
+version = "0.25.1"
 description = "The next generation HTTP client."
 optional = false
 python-versions = ">=3.8"
 groups = ["jupyter"]
 files = [
-    {file = "httpx-0.28.1-py3-none-any.whl", hash = "sha256:d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad"},
-    {file = "httpx-0.28.1.tar.gz", hash = "sha256:75e98c5f16b0f35b567856f597f06ff2270a374470a5c2392242528e3e3e42fc"},
+    {file = "httpx-0.25.1-py3-none-any.whl", hash = "sha256:fec7d6cc5c27c578a391f7e87b9aa7d3d8fbcd034f6399f9f79b45bcc12a866a"},
+    {file = "httpx-0.25.1.tar.gz", hash = "sha256:ffd96d5cf901e63863d9f1b4b6807861dbea4d301613415d9e6e57ead15fc5d0"},
 ]
 
 [package.dependencies]
 anyio = "*"
 certifi = "*"
-httpcore = "==1.*"
+httpcore = "*"
 idna = "*"
+sniffio = "*"
 
 [package.extras]
 brotli = ["brotli ; platform_python_implementation == \"CPython\"", "brotlicffi ; platform_python_implementation != \"CPython\""]
 cli = ["click (==8.*)", "pygments (==2.*)", "rich (>=10,<14)"]
 http2 = ["h2 (>=3,<5)"]
 socks = ["socksio (==1.*)"]
-zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
 name = "identify"
@@ -3014,6 +3011,11 @@ optional = false
 python-versions = ">=3.9"
 groups = ["pytorch"]
 files = [
+    {file = "torchvision-0.21.0-1-cp310-cp310-manylinux_2_28_aarch64.whl", hash = "sha256:5568c5a1ff1b2ec33127b629403adb530fab81378d9018ca4ed6508293f76e2b"},
+    {file = "torchvision-0.21.0-1-cp311-cp311-manylinux_2_28_aarch64.whl", hash = "sha256:ff96666b94a55e802ea6796cabe788541719e6f4905fc59c380fed3517b6a64d"},
+    {file = "torchvision-0.21.0-1-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:ffa2a16499508fe6798323e455f312c7c55f2a88901c9a7c0fb1efa86cf7e327"},
+    {file = "torchvision-0.21.0-1-cp313-cp313-manylinux_2_28_aarch64.whl", hash = "sha256:7e9e9afa150e40cd2a8f0701c43cb82a8d724f512896455c0918b987f94b84a4"},
+    {file = "torchvision-0.21.0-1-cp39-cp39-manylinux_2_28_aarch64.whl", hash = "sha256:669575b290ec27304569e188a960d12b907d5173f9cd65e86621d34c4e5b6c30"},
     {file = "torchvision-0.21.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:044ea420b8c6c3162a234cada8e2025b9076fa82504758cd11ec5d0f8cd9fa37"},
     {file = "torchvision-0.21.0-cp310-cp310-manylinux1_x86_64.whl", hash = "sha256:b0c0b264b89ab572888244f2e0bad5b7eaf5b696068fc0b93e96f7c3c198953f"},
     {file = "torchvision-0.21.0-cp310-cp310-manylinux_2_28_aarch64.whl", hash = "sha256:54815e0a56dde95cc6ec952577f67e0dc151eadd928e8d9f6a7f821d69a4a734"},
